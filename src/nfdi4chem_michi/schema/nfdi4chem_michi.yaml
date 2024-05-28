@@ -51,21 +51,103 @@ classes:
         multivalued: true
         inlined: true
 
+  # Information
+
+  Data:
+    description: Information about some entity produced by a planned process.
+
+  RawData:
+    is_a: Data
+
+  # Directive Information
+  Protocol:
+    class_uri: OBI:0000272
+    description: The information that specifies how to execute a planned process, in terms of what steps and actions must be taken and what preconditions must be met
+
+
+  # Attributes
+  Characteristic:
+    description: An attribute/characteristic of an entity (which could be a material entity, information or process)
+    slots:
+      - has quantitative value # range: data item with value specification of unit and precision
+      - is output of analysis # range: analysis that determined this characteristic
+
+  # Material entities
   Sample:
-    description: The material entity that is being evaluated.
+    is_a: NamedThing
+    description: The material entity that is being evaluated to assay its attributes/characteristic.
+    slots:
+      - output of sampling process # rang: sampling process - which is the process that determines where it came from
+      - has characteristic # range: characteristic - the quality being determined by an analysis/assay
+    todos:
+      - Review with regard to the ISA model and the controlled/independent & dependent variable part
 
   Molecule:
     description: A molecular entity
 
-  Chemical_Substance:
+  ChemicalSubstance:
     description:
 
-  Analysis:
-    class_uri: OBI:0001209
-    description: The planned process to analyse/assay a sample.
-    
+  Device:
+    is_a: NamedThing
+    class_uri:
+    description: A  used within an analysis with a specific function
+    slots:
+      - has part # another device
+      - has vendor
+      - has SerialNumber
+      - has ModelNumber # the specific information of what model within a model family e.g. Lattitude 5310 of the Dell Lattitude family
+      - has function # range Function, the main function of the device -> what it can measure
+      - has device setting # range: information that specifies an attribute of the Device
+      - has visual representation # range: some image, schema drawing etc. which depicts the layout of the device
+      - has type # placeholder to remember that we need to be able to specify a specialization/kind of the device, e.g. NMR spectrometer
+
+  DevicePart:
+    is_a: Device
 
 
+
+  # Processes
+
+  PlannedProcess:
+    class_uri: OBI:0000011
+    description: A process that is executed according to some plan or protocoll
+    slots:
+      - has input
+      - has output
+
+  ChemicalReaction:
+
+  ChemicalAssay:
+    is_a: PlannedProcess
+    class_uri: OBI:0000070
+    description: The planned process to chemically assay a sample in order to determine some characteristic of it.
+    slots:
+      - has sample # range: sample being evaluated to determine a characteristic of the sample
+      - has device # range: device used to evaluate the sample
+      - produces dataset # range: Dataset - the information produced about the sample
+      - has type # range: measurement technique - some class from some ontology
+    examples:
+      - a certai Raman spectroscopy
+
+  ChemicalAnalysis:
+    is_a: PlannedProcess
+    description: An interpretation of the data output of a ChemicalAssay
+    slots:
+      - has status # range: StatusEnum - planned, in progress, done/finished, confirmed, unconfirmed
+      - based on assay output # range: Data - the information produced by some ChemicalAssay
+    examples:
+      - an assignemt of chemical structures to certain peaks in a spectrum
+
+
+
+
+
+  SamplePreparation:
+    is_a: PlannedProcess
+    description: The process in which a sample is being generated or prepared for further analysis
+
+# Slots
 slots:
   id:
     identifier: true
@@ -78,6 +160,9 @@ slots:
   description:
     slot_uri: schema:description
     description: A human-readable description for a thing
+  has_input:
+  has_sample:
+    is_a: has_input
 
 
 enums:
