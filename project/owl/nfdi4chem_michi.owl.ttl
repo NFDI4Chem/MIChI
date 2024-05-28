@@ -1,3 +1,4 @@
+@prefix OBI: <http://purl.obolibrary.org/obo/OBI_> .
 @prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix linkml: <https://w3id.org/linkml/> .
@@ -8,6 +9,17 @@
 @prefix schema1: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+nfdi4chem_michi:Analysis a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Analysis" ;
+    skos:exactMatch OBI:0001209 ;
+    skos:inScheme nfdi4chem_michi: .
+
+nfdi4chem_michi:ChemicalSubstance a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Chemical_Substance" ;
+    skos:inScheme nfdi4chem_michi: .
 
 nfdi4chem_michi:DatasetCollection a owl:Class,
         linkml:ClassDefinition ;
@@ -21,38 +33,23 @@ nfdi4chem_michi:DatasetCollection a owl:Class,
     skos:definition "A holder for Dataset objects" ;
     skos:inScheme nfdi4chem_michi: .
 
+nfdi4chem_michi:Molecule a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Molecule" ;
+    skos:definition "A molecular entity" ;
+    skos:inScheme nfdi4chem_michi: .
+
+nfdi4chem_michi:Sample a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Sample" ;
+    skos:definition "The material entity that is being evaluated." ;
+    skos:inScheme nfdi4chem_michi: .
+
 nfdi4chem_michi:Dataset a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Dataset" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:birth_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Date ;
-            owl:onProperty nfdi4chem_michi:birth_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:primary_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nfdi4chem_michi:age_in_years ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:vital_status ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Integer ;
-            owl:onProperty nfdi4chem_michi:age_in_years ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:age_in_years ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nfdi4chem_michi:vital_status ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nfdi4chem_michi:birth_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty nfdi4chem_michi:primary_email ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
@@ -60,8 +57,8 @@ nfdi4chem_michi:Dataset a owl:Class,
                     owl:withRestrictions ( [ xsd:pattern "^\\S+@[\\S+\\.]+\\S+" ] ) ] ;
             owl:onProperty nfdi4chem_michi:primary_email ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nfdi4chem_michi:PersonStatus ;
-            owl:onProperty nfdi4chem_michi:vital_status ],
+            owl:minCardinality 0 ;
+            owl:onProperty nfdi4chem_michi:primary_email ],
         nfdi4chem_michi:NamedThing ;
     skos:definition "Represents a Dataset" ;
     skos:inScheme nfdi4chem_michi: .
@@ -70,31 +67,31 @@ nfdi4chem_michi:NamedThing a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedThing" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nfdi4chem_michi:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty nfdi4chem_michi:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nfdi4chem_michi:name ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty nfdi4chem_michi:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:id ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty nfdi4chem_michi:description ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty nfdi4chem_michi:id ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty nfdi4chem_michi:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nfdi4chem_michi:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty nfdi4chem_michi:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty nfdi4chem_michi:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nfdi4chem_michi:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty nfdi4chem_michi:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty nfdi4chem_michi:description ] ;
     skos:definition "A generic grouping for any identifiable entity" ;
     skos:exactMatch schema1:Thing ;
@@ -120,20 +117,6 @@ nfdi4chem_michi:entries a owl:ObjectProperty,
     rdfs:label "entries" ;
     skos:inScheme nfdi4chem_michi: .
 
-nfdi4chem_michi:age_in_years a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "age_in_years" ;
-    rdfs:range linkml:Integer ;
-    skos:definition "Number of years since birth" ;
-    skos:inScheme nfdi4chem_michi: .
-
-nfdi4chem_michi:birth_date a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "birth_date" ;
-    rdfs:range linkml:Date ;
-    skos:definition "Date on which a person is born" ;
-    skos:inScheme nfdi4chem_michi: .
-
 nfdi4chem_michi:description a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "description" ;
@@ -153,19 +136,6 @@ nfdi4chem_michi:name a owl:ObjectProperty,
     skos:definition "A human-readable name for a thing" ;
     skos:inScheme nfdi4chem_michi: .
 
-nfdi4chem_michi:primary_email a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "primary_email" ;
-    skos:definition "The main email address of a person" ;
-    skos:inScheme nfdi4chem_michi: .
-
-nfdi4chem_michi:vital_status a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "vital_status" ;
-    rdfs:range nfdi4chem_michi:PersonStatus ;
-    skos:definition "living or dead status" ;
-    skos:inScheme nfdi4chem_michi: .
-
 nfdi4chem_michi:PersonStatus a owl:Class,
         linkml:EnumDefinition ;
     owl:unionOf ( PATO:0001421 PATO:0001422 <https://w3id.org/StroemPhi/NFDI4Chem_MIChIPersonStatus#UNKNOWN> ) ;
@@ -176,7 +146,7 @@ nfdi4chem_michi:PersonStatus a owl:Class,
 nfdi4chem_michi: a owl:Ontology ;
     rdfs:label "NFDI4Chem_MIChI" ;
     dcterms:license "MIT" ;
-    dcterms:title "NFDI4Chem MIChI" ;
+    dcterms:title "NFDI4Chem_MIChI" ;
     rdfs:seeAlso nfdi4chem_michi: ;
     skos:definition "This is the metadata schema for NFDI4Chem" .
 

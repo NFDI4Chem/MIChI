@@ -1,1 +1,1 @@
-"""Tests for NFDI4Chem MIChI."""
+"""Tests for NFDI4Chem_MIChI."""

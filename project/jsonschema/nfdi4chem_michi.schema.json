@@ -1,18 +1,21 @@
 {
     "$defs": {
+        "Analysis": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "Analysis",
+            "type": "object"
+        },
+        "ChemicalSubstance": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "ChemicalSubstance",
+            "type": "object"
+        },
         "Dataset": {
             "additionalProperties": false,
             "description": "Represents a Dataset",
             "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": "integer"
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
-                    "type": "string"
-                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -24,15 +27,6 @@
                 "name": {
                     "description": "A human-readable name for a thing",
                     "type": "string"
-                },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
-                    "type": "string"
-                },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
                 }
             },
             "required": [
@@ -66,15 +60,6 @@
             "additionalProperties": false,
             "description": "Represents a Dataset",
             "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": "integer"
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
-                    "type": "string"
-                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -86,19 +71,16 @@
                 "name": {
                     "description": "A human-readable name for a thing",
                     "type": "string"
-                },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
-                    "type": "string"
-                },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
                 }
             },
             "required": [],
             "title": "Dataset",
+            "type": "object"
+        },
+        "Molecule": {
+            "additionalProperties": false,
+            "description": "A molecular entity",
+            "title": "Molecule",
             "type": "object"
         },
         "NamedThing": {
@@ -133,6 +115,12 @@
             ],
             "title": "PersonStatus",
             "type": "string"
+        },
+        "Sample": {
+            "additionalProperties": false,
+            "description": "The material entity that is being evaluated.",
+            "title": "Sample",
+            "type": "object"
         }
     },
     "$id": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",

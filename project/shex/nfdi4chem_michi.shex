@@ -44,14 +44,22 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
+<https://w3id.org/StroemPhi/NFDI4Chem_MIChIAnalysis> CLOSED {
+    (  $<https://w3id.org/StroemPhi/NFDI4Chem_MIChIAnalysis_tes> rdf:type . * ;
+       rdf:type [ <http://purl.obolibrary.org/obo/OBI_0001209> ] ?
+    )
+}
+
+<https://w3id.org/StroemPhi/NFDI4Chem_MIChIChemicalSubstance> CLOSED {
+    (  $<https://w3id.org/StroemPhi/NFDI4Chem_MIChIChemicalSubstance_tes> rdf:type . * ;
+       rdf:type [ <https://w3id.org/StroemPhi/NFDI4Chem_MIChIChemicalSubstance> ] ?
+    )
+}
+
 <https://w3id.org/StroemPhi/NFDI4Chem_MIChIDataset> CLOSED {
     (  $<https://w3id.org/StroemPhi/NFDI4Chem_MIChIDataset_tes> (  &<https://w3id.org/StroemPhi/NFDI4Chem_MIChINamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
-          schema1:email @linkml:String ? ;
-          schema1:birthDate @linkml:Date ? ;
-          <https://w3id.org/StroemPhi/NFDI4Chem_MIChIage_in_years> @linkml:Integer ? ;
-          <https://w3id.org/StroemPhi/NFDI4Chem_MIChIvital_status> [ <http://purl.obolibrary.org/obo/PATO_0001421>
-             <http://purl.obolibrary.org/obo/PATO_0001422> <https://w3id.org/StroemPhi/NFDI4Chem_MIChIPersonStatus#UNKNOWN> ] ?
+          <https://w3id.org/StroemPhi/NFDI4Chem_MIChIprimary_email> @linkml:String ?
        ) ;
        rdf:type [ <https://w3id.org/StroemPhi/NFDI4Chem_MIChIDataset> ]
     )
@@ -64,6 +72,12 @@ linkml:Sparqlpath xsd:string
     )
 }
 
+<https://w3id.org/StroemPhi/NFDI4Chem_MIChIMolecule> CLOSED {
+    (  $<https://w3id.org/StroemPhi/NFDI4Chem_MIChIMolecule_tes> rdf:type . * ;
+       rdf:type [ <https://w3id.org/StroemPhi/NFDI4Chem_MIChIMolecule> ] ?
+    )
+}
+
 <https://w3id.org/StroemPhi/NFDI4Chem_MIChINamedThing>  (
     CLOSED {
        (  $<https://w3id.org/StroemPhi/NFDI4Chem_MIChINamedThing_tes> (  schema1:name @linkml:String ? ;
@@ -73,4 +87,10 @@ linkml:Sparqlpath xsd:string
        )
     } OR @<https://w3id.org/StroemPhi/NFDI4Chem_MIChIDataset>
 )
+
+<https://w3id.org/StroemPhi/NFDI4Chem_MIChISample> CLOSED {
+    (  $<https://w3id.org/StroemPhi/NFDI4Chem_MIChISample_tes> rdf:type . * ;
+       rdf:type [ <https://w3id.org/StroemPhi/NFDI4Chem_MIChISample> ] ?
+    )
+}
 

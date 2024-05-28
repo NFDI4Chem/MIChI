@@ -1,5 +1,5 @@
 # Auto generated from nfdi4chem_michi.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-28T11:20:57
+# Generation date: 2024-05-28T11:45:38
 # Schema: NFDI4Chem_MIChI
 #
 # id: https://w3id.org/StroemPhi/NFDI4Chem_MIChI
@@ -22,8 +22,8 @@ from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.linkml_model.types import Date, Integer, String, Uriorcurie
-from linkml_runtime.utils.metamodelcore import URIorCURIE, XSDDate
+from linkml_runtime.linkml_model.types import String, Uriorcurie
+from linkml_runtime.utils.metamodelcore import URIorCURIE
 
 metamodel_version = "1.7.0"
 version = None
@@ -32,6 +32,7 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+OBI = CurieNamespace('OBI', 'http://purl.obolibrary.org/obo/OBI_')
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
@@ -97,9 +98,6 @@ class Dataset(NamedThing):
 
     id: Union[str, DatasetId] = None
     primary_email: Optional[str] = None
-    birth_date: Optional[Union[str, XSDDate]] = None
-    age_in_years: Optional[int] = None
-    vital_status: Optional[Union[str, "PersonStatus"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -109,15 +107,6 @@ class Dataset(NamedThing):
 
         if self.primary_email is not None and not isinstance(self.primary_email, str):
             self.primary_email = str(self.primary_email)
-
-        if self.birth_date is not None and not isinstance(self.birth_date, XSDDate):
-            self.birth_date = XSDDate(self.birth_date)
-
-        if self.age_in_years is not None and not isinstance(self.age_in_years, int):
-            self.age_in_years = int(self.age_in_years)
-
-        if self.vital_status is not None and not isinstance(self.vital_status, PersonStatus):
-            self.vital_status = PersonStatus(self.vital_status)
 
         super().__post_init__(**kwargs)
 
@@ -140,6 +129,48 @@ class DatasetCollection(YAMLRoot):
         self._normalize_inlined_as_dict(slot_name="entries", slot_type=Dataset, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
+
+
+class Sample(YAMLRoot):
+    """
+    The material entity that is being evaluated.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI["Sample"]
+    class_class_curie: ClassVar[str] = "nfdi4chem_michi:Sample"
+    class_name: ClassVar[str] = "Sample"
+    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.Sample
+
+
+class Molecule(YAMLRoot):
+    """
+    A molecular entity
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI["Molecule"]
+    class_class_curie: ClassVar[str] = "nfdi4chem_michi:Molecule"
+    class_name: ClassVar[str] = "Molecule"
+    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.Molecule
+
+
+class ChemicalSubstance(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI["ChemicalSubstance"]
+    class_class_curie: ClassVar[str] = "nfdi4chem_michi:ChemicalSubstance"
+    class_name: ClassVar[str] = "Chemical_Substance"
+    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.ChemicalSubstance
+
+
+class Analysis(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = OBI["0001209"]
+    class_class_curie: ClassVar[str] = "OBI:0001209"
+    class_name: ClassVar[str] = "Analysis"
+    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.Analysis
 
 
 # Enumerations
@@ -174,21 +205,13 @@ slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
 slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEMA.curie('description'),
                    model_uri=NFDI4CHEM_MICHI.description, domain=None, range=Optional[str])
 
-slots.primary_email = Slot(uri=SCHEMA.email, name="primary_email", curie=SCHEMA.curie('email'),
-                   model_uri=NFDI4CHEM_MICHI.primary_email, domain=None, range=Optional[str])
-
-slots.birth_date = Slot(uri=SCHEMA.birthDate, name="birth_date", curie=SCHEMA.curie('birthDate'),
-                   model_uri=NFDI4CHEM_MICHI.birth_date, domain=None, range=Optional[Union[str, XSDDate]])
-
-slots.age_in_years = Slot(uri=NFDI4CHEM_MICHI.age_in_years, name="age_in_years", curie=NFDI4CHEM_MICHI.curie('age_in_years'),
-                   model_uri=NFDI4CHEM_MICHI.age_in_years, domain=None, range=Optional[int])
-
-slots.vital_status = Slot(uri=NFDI4CHEM_MICHI.vital_status, name="vital_status", curie=NFDI4CHEM_MICHI.curie('vital_status'),
-                   model_uri=NFDI4CHEM_MICHI.vital_status, domain=None, range=Optional[Union[str, "PersonStatus"]])
-
 slots.datasetCollection__entries = Slot(uri=NFDI4CHEM_MICHI.entries, name="datasetCollection__entries", curie=NFDI4CHEM_MICHI.curie('entries'),
                    model_uri=NFDI4CHEM_MICHI.datasetCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, DatasetId], Union[dict, Dataset]], List[Union[dict, Dataset]]]])
 
-slots.Dataset_primary_email = Slot(uri=SCHEMA.email, name="Dataset_primary_email", curie=SCHEMA.curie('email'),
+slots.primary_email = Slot(uri=NFDI4CHEM_MICHI.primary_email, name="primary_email", curie=NFDI4CHEM_MICHI.curie('primary_email'),
+                   model_uri=NFDI4CHEM_MICHI.primary_email, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^\S+@[\S+\.]+\S+'))
+
+slots.Dataset_primary_email = Slot(uri=NFDI4CHEM_MICHI.primary_email, name="Dataset_primary_email", curie=NFDI4CHEM_MICHI.curie('primary_email'),
                    model_uri=NFDI4CHEM_MICHI.Dataset_primary_email, domain=Dataset, range=Optional[str],
                    pattern=re.compile(r'^\S+@[\S+\.]+\S+'))

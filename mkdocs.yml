@@ -1,5 +1,5 @@
 ---
-site_name: "NFDI4Chem MIChI"
+site_name: "NFDI4Chem_MIChI"
 theme:
   name: material
   # palette:

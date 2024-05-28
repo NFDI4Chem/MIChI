@@ -1,7 +1,7 @@
 ---
 id: https://w3id.org/StroemPhi/NFDI4Chem_MIChI
 name: NFDI4Chem_MIChI
-title: NFDI4Chem MIChI
+title: NFDI4Chem_MIChI
 description: |-
   This is the metadata schema for NFDI4Chem
 license: MIT
@@ -14,6 +14,7 @@ prefixes:
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
+  OBI: http://purl.obolibrary.org/obo/OBI_
   example: https://example.org/
 default_prefix: nfdi4chem_michi
 default_range: string
@@ -36,11 +37,6 @@ classes:
     is_a: NamedThing
     description: >-
       Represents a Dataset
-    slots:
-      - primary_email
-      - birth_date
-      - age_in_years
-      - vital_status
     slot_usage:
       primary_email:
         pattern: "^\\S+@[\\S+\\.]+\\S+"
@@ -55,6 +51,18 @@ classes:
         multivalued: true
         inlined: true
 
+  Sample:
+    description: The material entity that is being evaluated.
+
+  Molecule:
+    description: A molecular entity
+
+  Chemical_Substance:
+    description:
+
+  Analysis:
+    class_uri: OBI:0001209
+
 slots:
   id:
     identifier: true
@@ -67,19 +75,7 @@ slots:
   description:
     slot_uri: schema:description
     description: A human-readable description for a thing
-  primary_email:
-    slot_uri: schema:email
-    description: The main email address of a person
-  birth_date:
-    slot_uri: schema:birthDate
-    range: date
-    description: Date on which a person is born
-  age_in_years:
-    range: integer
-    description: Number of years since birth
-  vital_status:
-    range: PersonStatus
-    description: living or dead status
+
 
 enums:
   PersonStatus:
