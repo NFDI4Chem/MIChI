@@ -1,22 +1,22 @@
 ---
 id: https://w3id.org/StroemPhi/NFDI4Chem_MIChI
-name: NFDI4Chem_MIChI
-title: NFDI4Chem_MIChI
+name: MIChI
+title: MIChI
 description: |-
   This is the metadata schema for NFDI4Chem
 license: MIT
 see_also:
-  - https://w3id.org/StroemPhi/NFDI4Chem_MIChI
+  - https://w3id.org/NFDI4Chem/MIChI
 
 prefixes:
-  nfdi4chem_michi: https://w3id.org/StroemPhi/NFDI4Chem_MIChI
+  michi: https://w3id.org/NFDI4Chem/MIChI
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
   OBI: http://purl.obolibrary.org/obo/OBI_
   example: https://example.org/
-default_prefix: nfdi4chem_michi
+default_prefix: michi
 default_range: string
 
 imports:
@@ -62,6 +62,9 @@ classes:
 
   Analysis:
     class_uri: OBI:0001209
+    description: The planned process to analyse/assay a sample.
+    
+
 
 slots:
   id:

@@ -2,7 +2,7 @@
 @prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix linkml: <https://w3id.org/linkml/> .
-@prefix nfdi4chem_michi: <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
+@prefix michi: <https://w3id.org/NFDI4Chem/MIChI> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -10,143 +10,144 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-nfdi4chem_michi:Analysis a owl:Class,
+michi:Analysis a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Analysis" ;
+    skos:definition "The planned process to analyse/assay a sample." ;
     skos:exactMatch OBI:0001209 ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:ChemicalSubstance a owl:Class,
+michi:ChemicalSubstance a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Chemical_Substance" ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:DatasetCollection a owl:Class,
+michi:DatasetCollection a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DatasetCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nfdi4chem_michi:entries ],
+            owl:allValuesFrom michi:Dataset ;
+            owl:onProperty michi:entries ],
         [ a owl:Restriction ;
-            owl:allValuesFrom nfdi4chem_michi:Dataset ;
-            owl:onProperty nfdi4chem_michi:entries ] ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:entries ] ;
     skos:definition "A holder for Dataset objects" ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:Molecule a owl:Class,
+michi:Molecule a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Molecule" ;
     skos:definition "A molecular entity" ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:Sample a owl:Class,
+michi:Sample a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Sample" ;
     skos:definition "The material entity that is being evaluated." ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:Dataset a owl:Class,
+michi:Dataset a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Dataset" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:primary_email ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:primary_email ],
+            owl:onProperty michi:primary_email ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:onDatatype xsd:string ;
                     owl:withRestrictions ( [ xsd:pattern "^\\S+@[\\S+\\.]+\\S+" ] ) ] ;
-            owl:onProperty nfdi4chem_michi:primary_email ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty nfdi4chem_michi:primary_email ],
-        nfdi4chem_michi:NamedThing ;
+            owl:onProperty michi:primary_email ],
+        michi:NamedThing ;
     skos:definition "Represents a Dataset" ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:NamedThing a owl:Class,
+michi:NamedThing a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedThing" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty nfdi4chem_michi:id ],
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:name ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:id ],
+            owl:onProperty michi:id ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nfdi4chem_michi:name ],
+            owl:onProperty michi:description ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty nfdi4chem_michi:name ],
+            owl:onProperty michi:name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty michi:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:id ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty michi:description ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty nfdi4chem_michi:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty nfdi4chem_michi:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty nfdi4chem_michi:description ] ;
+            owl:onProperty michi:name ] ;
     skos:definition "A generic grouping for any identifiable entity" ;
     skos:exactMatch schema1:Thing ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
 PATO:0001421 a owl:Class,
-        nfdi4chem_michi:PersonStatus ;
+        michi:PersonStatus ;
     rdfs:label "ALIVE" ;
-    rdfs:subClassOf nfdi4chem_michi:PersonStatus .
+    rdfs:subClassOf michi:PersonStatus .
 
 PATO:0001422 a owl:Class,
-        nfdi4chem_michi:PersonStatus ;
+        michi:PersonStatus ;
     rdfs:label "DEAD" ;
-    rdfs:subClassOf nfdi4chem_michi:PersonStatus .
+    rdfs:subClassOf michi:PersonStatus .
 
-<https://w3id.org/StroemPhi/NFDI4Chem_MIChIPersonStatus#UNKNOWN> a owl:Class,
-        nfdi4chem_michi:PersonStatus ;
+<https://w3id.org/NFDI4Chem/MIChIPersonStatus#UNKNOWN> a owl:Class,
+        michi:PersonStatus ;
     rdfs:label "UNKNOWN" ;
-    rdfs:subClassOf nfdi4chem_michi:PersonStatus .
+    rdfs:subClassOf michi:PersonStatus .
 
-nfdi4chem_michi:entries a owl:ObjectProperty,
+michi:entries a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "entries" ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:description a owl:ObjectProperty,
+michi:description a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "description" ;
     skos:definition "A human-readable description for a thing" ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:id a owl:ObjectProperty,
+michi:id a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "id" ;
     rdfs:range linkml:Uriorcurie ;
     skos:definition "A unique identifier for a thing" ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:name a owl:ObjectProperty,
+michi:name a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "name" ;
     skos:definition "A human-readable name for a thing" ;
-    skos:inScheme nfdi4chem_michi: .
+    skos:inScheme <https://w3id.org/StroemPhi/NFDI4Chem_MIChI> .
 
-nfdi4chem_michi:PersonStatus a owl:Class,
+michi:PersonStatus a owl:Class,
         linkml:EnumDefinition ;
-    owl:unionOf ( PATO:0001421 PATO:0001422 <https://w3id.org/StroemPhi/NFDI4Chem_MIChIPersonStatus#UNKNOWN> ) ;
+    owl:unionOf ( PATO:0001421 PATO:0001422 <https://w3id.org/NFDI4Chem/MIChIPersonStatus#UNKNOWN> ) ;
     linkml:permissible_values PATO:0001421,
         PATO:0001422,
-        <https://w3id.org/StroemPhi/NFDI4Chem_MIChIPersonStatus#UNKNOWN> .
+        <https://w3id.org/NFDI4Chem/MIChIPersonStatus#UNKNOWN> .
 
-nfdi4chem_michi: a owl:Ontology ;
-    rdfs:label "NFDI4Chem_MIChI" ;
+<https://w3id.org/StroemPhi/NFDI4Chem_MIChI> a owl:Ontology ;
+    rdfs:label "MIChI" ;
     dcterms:license "MIT" ;
-    dcterms:title "NFDI4Chem_MIChI" ;
-    rdfs:seeAlso nfdi4chem_michi: ;
+    dcterms:title "MIChI" ;
+    rdfs:seeAlso michi: ;
     skos:definition "This is the metadata schema for NFDI4Chem" .
 

@@ -15,7 +15,7 @@
 --     * Slot: id Description: 
 -- # Class: "Chemical_Substance" Description: ""
 --     * Slot: id Description: 
--- # Class: "Analysis" Description: ""
+-- # Class: "Analysis" Description: "The planned process to analyse/assay a sample."
 --     * Slot: id Description: 
 
 CREATE TABLE "NamedThing" (

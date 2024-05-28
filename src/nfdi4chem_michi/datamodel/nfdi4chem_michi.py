@@ -1,6 +1,6 @@
 # Auto generated from nfdi4chem_michi.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-28T11:45:38
-# Schema: NFDI4Chem_MIChI
+# Generation date: 2024-05-28T11:49:37
+# Schema: MIChI
 #
 # id: https://w3id.org/StroemPhi/NFDI4Chem_MIChI
 # description: This is the metadata schema for NFDI4Chem
@@ -37,9 +37,9 @@ PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-NFDI4CHEM_MICHI = CurieNamespace('nfdi4chem_michi', 'https://w3id.org/StroemPhi/NFDI4Chem_MIChI')
+MICHI = CurieNamespace('michi', 'https://w3id.org/NFDI4Chem/MIChI')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
-DEFAULT_ = NFDI4CHEM_MICHI
+DEFAULT_ = MICHI
 
 
 # Types
@@ -63,7 +63,7 @@ class NamedThing(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SCHEMA["Thing"]
     class_class_curie: ClassVar[str] = "schema:Thing"
     class_name: ClassVar[str] = "NamedThing"
-    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.NamedThing
+    class_model_uri: ClassVar[URIRef] = MICHI.NamedThing
 
     id: Union[str, NamedThingId] = None
     name: Optional[str] = None
@@ -91,10 +91,10 @@ class Dataset(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI["Dataset"]
-    class_class_curie: ClassVar[str] = "nfdi4chem_michi:Dataset"
+    class_class_uri: ClassVar[URIRef] = MICHI["Dataset"]
+    class_class_curie: ClassVar[str] = "michi:Dataset"
     class_name: ClassVar[str] = "Dataset"
-    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.Dataset
+    class_model_uri: ClassVar[URIRef] = MICHI.Dataset
 
     id: Union[str, DatasetId] = None
     primary_email: Optional[str] = None
@@ -118,10 +118,10 @@ class DatasetCollection(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI["DatasetCollection"]
-    class_class_curie: ClassVar[str] = "nfdi4chem_michi:DatasetCollection"
+    class_class_uri: ClassVar[URIRef] = MICHI["DatasetCollection"]
+    class_class_curie: ClassVar[str] = "michi:DatasetCollection"
     class_name: ClassVar[str] = "DatasetCollection"
-    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.DatasetCollection
+    class_model_uri: ClassVar[URIRef] = MICHI.DatasetCollection
 
     entries: Optional[Union[Dict[Union[str, DatasetId], Union[dict, Dataset]], List[Union[dict, Dataset]]]] = empty_dict()
 
@@ -137,10 +137,10 @@ class Sample(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI["Sample"]
-    class_class_curie: ClassVar[str] = "nfdi4chem_michi:Sample"
+    class_class_uri: ClassVar[URIRef] = MICHI["Sample"]
+    class_class_curie: ClassVar[str] = "michi:Sample"
     class_name: ClassVar[str] = "Sample"
-    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.Sample
+    class_model_uri: ClassVar[URIRef] = MICHI.Sample
 
 
 class Molecule(YAMLRoot):
@@ -149,28 +149,31 @@ class Molecule(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI["Molecule"]
-    class_class_curie: ClassVar[str] = "nfdi4chem_michi:Molecule"
+    class_class_uri: ClassVar[URIRef] = MICHI["Molecule"]
+    class_class_curie: ClassVar[str] = "michi:Molecule"
     class_name: ClassVar[str] = "Molecule"
-    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.Molecule
+    class_model_uri: ClassVar[URIRef] = MICHI.Molecule
 
 
 class ChemicalSubstance(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI["ChemicalSubstance"]
-    class_class_curie: ClassVar[str] = "nfdi4chem_michi:ChemicalSubstance"
+    class_class_uri: ClassVar[URIRef] = MICHI["ChemicalSubstance"]
+    class_class_curie: ClassVar[str] = "michi:ChemicalSubstance"
     class_name: ClassVar[str] = "Chemical_Substance"
-    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.ChemicalSubstance
+    class_model_uri: ClassVar[URIRef] = MICHI.ChemicalSubstance
 
 
 class Analysis(YAMLRoot):
+    """
+    The planned process to analyse/assay a sample.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = OBI["0001209"]
     class_class_curie: ClassVar[str] = "OBI:0001209"
     class_name: ClassVar[str] = "Analysis"
-    class_model_uri: ClassVar[URIRef] = NFDI4CHEM_MICHI.Analysis
+    class_model_uri: ClassVar[URIRef] = MICHI.Analysis
 
 
 # Enumerations
@@ -197,21 +200,21 @@ class slots:
     pass
 
 slots.id = Slot(uri=SCHEMA.identifier, name="id", curie=SCHEMA.curie('identifier'),
-                   model_uri=NFDI4CHEM_MICHI.id, domain=None, range=URIRef)
+                   model_uri=MICHI.id, domain=None, range=URIRef)
 
 slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
-                   model_uri=NFDI4CHEM_MICHI.name, domain=None, range=Optional[str])
+                   model_uri=MICHI.name, domain=None, range=Optional[str])
 
 slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEMA.curie('description'),
-                   model_uri=NFDI4CHEM_MICHI.description, domain=None, range=Optional[str])
+                   model_uri=MICHI.description, domain=None, range=Optional[str])
 
-slots.datasetCollection__entries = Slot(uri=NFDI4CHEM_MICHI.entries, name="datasetCollection__entries", curie=NFDI4CHEM_MICHI.curie('entries'),
-                   model_uri=NFDI4CHEM_MICHI.datasetCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, DatasetId], Union[dict, Dataset]], List[Union[dict, Dataset]]]])
+slots.datasetCollection__entries = Slot(uri=MICHI.entries, name="datasetCollection__entries", curie=MICHI.curie('entries'),
+                   model_uri=MICHI.datasetCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, DatasetId], Union[dict, Dataset]], List[Union[dict, Dataset]]]])
 
-slots.primary_email = Slot(uri=NFDI4CHEM_MICHI.primary_email, name="primary_email", curie=NFDI4CHEM_MICHI.curie('primary_email'),
-                   model_uri=NFDI4CHEM_MICHI.primary_email, domain=None, range=Optional[str],
+slots.primary_email = Slot(uri=MICHI.primary_email, name="primary_email", curie=MICHI.curie('primary_email'),
+                   model_uri=MICHI.primary_email, domain=None, range=Optional[str],
                    pattern=re.compile(r'^\S+@[\S+\.]+\S+'))
 
-slots.Dataset_primary_email = Slot(uri=NFDI4CHEM_MICHI.primary_email, name="Dataset_primary_email", curie=NFDI4CHEM_MICHI.curie('primary_email'),
-                   model_uri=NFDI4CHEM_MICHI.Dataset_primary_email, domain=Dataset, range=Optional[str],
+slots.Dataset_primary_email = Slot(uri=MICHI.primary_email, name="Dataset_primary_email", curie=MICHI.curie('primary_email'),
+                   model_uri=MICHI.Dataset_primary_email, domain=Dataset, range=Optional[str],
                    pattern=re.compile(r'^\S+@[\S+\.]+\S+'))

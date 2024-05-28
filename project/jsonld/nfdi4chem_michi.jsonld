@@ -1,9 +1,9 @@
 {
-  "name": "NFDI4Chem_MIChI",
+  "name": "MIChI",
   "description": "This is the metadata schema for NFDI4Chem",
-  "title": "NFDI4Chem_MIChI",
+  "title": "MIChI",
   "see_also": [
-    "https://w3id.org/StroemPhi/NFDI4Chem_MIChI"
+    "https://w3id.org/NFDI4Chem/MIChI"
   ],
   "id": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
   "imports": [
@@ -12,8 +12,8 @@
   "license": "MIT",
   "prefixes": [
     {
-      "prefix_prefix": "nfdi4chem_michi",
-      "prefix_reference": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI"
+      "prefix_prefix": "michi",
+      "prefix_reference": "https://w3id.org/NFDI4Chem/MIChI"
     },
     {
       "prefix_prefix": "linkml",
@@ -40,7 +40,7 @@
       "prefix_reference": "https://example.org/"
     }
   ],
-  "default_prefix": "nfdi4chem_michi",
+  "default_prefix": "michi",
   "default_range": "string",
   "types": [
     {
@@ -355,7 +355,7 @@
   "enums": [
     {
       "name": "PersonStatus",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIPersonStatus",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIPersonStatus",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "permissible_values": [
         {
@@ -381,7 +381,7 @@
   "slots": [
     {
       "name": "id",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIid",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIid",
       "description": "A unique identifier for a thing",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "mappings": [
@@ -399,7 +399,7 @@
     },
     {
       "name": "name",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIname",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIname",
       "description": "A human-readable name for a thing",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "mappings": [
@@ -415,7 +415,7 @@
     },
     {
       "name": "description",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIdescription",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIdescription",
       "description": "A human-readable description for a thing",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "mappings": [
@@ -432,7 +432,7 @@
     {
       "name": "datasetCollection__entries",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
-      "slot_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIentries",
+      "slot_uri": "https://w3id.org/NFDI4Chem/MIChIentries",
       "multivalued": true,
       "alias": "entries",
       "owner": "DatasetCollection",
@@ -446,7 +446,7 @@
     {
       "name": "primary_email",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
-      "slot_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIprimary_email",
+      "slot_uri": "https://w3id.org/NFDI4Chem/MIChIprimary_email",
       "range": "string",
       "pattern": "^\\S+@[\\S+\\.]+\\S+",
       "@type": "SlotDefinition"
@@ -456,7 +456,7 @@
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "is_a": "primary_email",
       "domain": "Dataset",
-      "slot_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIprimary_email",
+      "slot_uri": "https://w3id.org/NFDI4Chem/MIChIprimary_email",
       "alias": "primary_email",
       "owner": "Dataset",
       "domain_of": [
@@ -472,7 +472,7 @@
   "classes": [
     {
       "name": "NamedThing",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChINamedThing",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChINamedThing",
       "description": "A generic grouping for any identifiable entity",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "mappings": [
@@ -489,7 +489,7 @@
     },
     {
       "name": "Dataset",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIDataset",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIDataset",
       "description": "Represents a Dataset",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "is_a": "NamedThing",
@@ -500,12 +500,12 @@
         "Dataset_primary_email"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIDataset",
+      "class_uri": "https://w3id.org/NFDI4Chem/MIChIDataset",
       "@type": "ClassDefinition"
     },
     {
       "name": "DatasetCollection",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIDatasetCollection",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIDatasetCollection",
       "description": "A holder for Dataset objects",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "slots": [
@@ -521,39 +521,40 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIDatasetCollection",
+      "class_uri": "https://w3id.org/NFDI4Chem/MIChIDatasetCollection",
       "tree_root": true,
       "@type": "ClassDefinition"
     },
     {
       "name": "Sample",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChISample",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChISample",
       "description": "The material entity that is being evaluated.",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "slot_usage": {},
-      "class_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChISample",
+      "class_uri": "https://w3id.org/NFDI4Chem/MIChISample",
       "@type": "ClassDefinition"
     },
     {
       "name": "Molecule",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIMolecule",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIMolecule",
       "description": "A molecular entity",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "slot_usage": {},
-      "class_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIMolecule",
+      "class_uri": "https://w3id.org/NFDI4Chem/MIChIMolecule",
       "@type": "ClassDefinition"
     },
     {
       "name": "ChemicalSubstance",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIChemicalSubstance",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIChemicalSubstance",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "slot_usage": {},
-      "class_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIChemicalSubstance",
+      "class_uri": "https://w3id.org/NFDI4Chem/MIChIChemicalSubstance",
       "@type": "ClassDefinition"
     },
     {
       "name": "Analysis",
-      "definition_uri": "https://w3id.org/StroemPhi/NFDI4Chem_MIChIAnalysis",
+      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIAnalysis",
+      "description": "The planned process to analyse/assay a sample.",
       "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
       "mappings": [
         "OBI:0001209"
@@ -565,15 +566,15 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "nfdi4chem_michi.yaml",
-  "source_file_date": "2024-05-28T11:45:31",
-  "source_file_size": 2006,
-  "generation_date": "2024-05-28T11:45:37",
+  "source_file_date": "2024-05-28T11:49:19",
+  "source_file_size": 2016,
+  "generation_date": "2024-05-28T11:49:36",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/nfdi4chem_michi.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     {
-      "@base": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI"
+      "@base": "https://w3id.org/NFDI4Chem/MIChI"
     }
   ]
 }

@@ -4,7 +4,7 @@
    "biolink": "https://w3id.org/biolink/",
    "example": "https://example.org/",
    "linkml": "https://w3id.org/linkml/",
-   "nfdi4chem_michi": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+   "michi": "https://w3id.org/NFDI4Chem/MIChI",
    "schema": "http://schema.org/",
    "Analysis": {
       "@id": "OBI:0001209"
