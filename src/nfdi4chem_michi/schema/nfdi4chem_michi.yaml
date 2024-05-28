@@ -87,6 +87,7 @@ classes:
   # chemical entities
   MaterialEntity:
     class_uri: BFO:0000040
+    is_a: NamedThing
     description: "Material entities are three-dimensional entities (entities extended in three spatial dimensions), 
     as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended 
     also along the dimension of time)"
@@ -97,8 +98,11 @@ classes:
     description: "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, 
     complex, conformer etc., identifiable as a separately distinguishable entity."
     comments:
-      - "We do not use (ignore) the chemical entity class from CHEBI as this is only a grouping class, and chemical 
-      entity is rather that which constitutes a chemical substance"
+      - "This is actually mapped to CHEBI:molecular entity (CHEBI:23367), from which we just copied the definition 
+      into our description. We did so to be able to reuse the label Chemical Entity. We do not use (ignore) the 
+      chemical entity class from CHEBI as this is only a grouping class, and chemical entity is rather that which constitutes a chemical substance"
+      - There was the issue with theoretical chemist postulating chemical entities that are not physical existing -->
+        write/ask in the OBO or BFO discuss list ?
 
   ChemicalSubstance:
     is_a: MaterialEntity
@@ -106,15 +110,18 @@ classes:
     description: A MaterialEntity that is composed of multiple Chemical Entities of either the same or different kind
     slots:
       - has provenance # range: information about the chemical substance that determines where it came from
-      - has chemical entity
+      - has chemical entity # range: chemical entity - relation
       - has space group
+      - IUPAC name
     examples:
       - a polymer
       - a mixture of ethanol and methanol
-      - O2 Ti -
+      - O2 Ti
     comments:
       - "CHEBI definition: A chemical substance is a portion of matter of constant composition, composed of molecular
       entities of the same type or of different types."
+    todos:
+      - we need to describe ratios of chemical entities in a chemical substance
 
 
 
