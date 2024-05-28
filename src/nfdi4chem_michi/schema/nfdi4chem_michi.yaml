@@ -1,0 +1,96 @@
+---
+id: https://w3id.org/StroemPhi/NFDI4Chem_MIChI
+name: NFDI4Chem_MIChI
+title: NFDI4Chem MIChI
+description: |-
+  This is the metadata schema for NFDI4Chem
+license: MIT
+see_also:
+  - https://w3id.org/StroemPhi/NFDI4Chem_MIChI
+
+prefixes:
+  nfdi4chem_michi: https://w3id.org/StroemPhi/NFDI4Chem_MIChI
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  example: https://example.org/
+default_prefix: nfdi4chem_michi
+default_range: string
+
+imports:
+  - linkml:types
+
+classes:
+
+  NamedThing:
+    description: >-
+      A generic grouping for any identifiable entity
+    slots:
+      - id
+      - name
+      - description
+    class_uri: schema:Thing
+
+  Dataset:
+    is_a: NamedThing
+    description: >-
+      Represents a Dataset
+    slots:
+      - primary_email
+      - birth_date
+      - age_in_years
+      - vital_status
+    slot_usage:
+      primary_email:
+        pattern: "^\\S+@[\\S+\\.]+\\S+"
+
+  DatasetCollection:
+    tree_root: true
+    description: >-
+      A holder for Dataset objects
+    attributes:
+      entries:
+        range: Dataset
+        multivalued: true
+        inlined: true
+
+slots:
+  id:
+    identifier: true
+    slot_uri: schema:identifier
+    range: uriorcurie
+    description: A unique identifier for a thing
+  name:
+    slot_uri: schema:name
+    description: A human-readable name for a thing
+  description:
+    slot_uri: schema:description
+    description: A human-readable description for a thing
+  primary_email:
+    slot_uri: schema:email
+    description: The main email address of a person
+  birth_date:
+    slot_uri: schema:birthDate
+    range: date
+    description: Date on which a person is born
+  age_in_years:
+    range: integer
+    description: Number of years since birth
+  vital_status:
+    range: PersonStatus
+    description: living or dead status
+
+enums:
+  PersonStatus:
+    permissible_values:
+      ALIVE:
+        description: the person is living
+        meaning: PATO:0001421
+      DEAD:
+        description: the person is deceased
+        meaning: PATO:0001422
+      UNKNOWN:
+        description: the vital status is not known
+        todos:
+          - map this to an ontology
