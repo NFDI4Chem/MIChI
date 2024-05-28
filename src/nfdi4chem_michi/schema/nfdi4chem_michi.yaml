@@ -15,6 +15,7 @@ prefixes:
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
   OBI: http://purl.obolibrary.org/obo/OBI_
+  CHEBI: http://purl.obolibrary.org/obo/CHEBI_
   example: https://example.org/
 default_prefix: michi
 default_range: string
@@ -33,6 +34,7 @@ classes:
       - description
     class_uri: schema:Thing
 
+  # Information
   Dataset:
     is_a: NamedThing
     description: >-
@@ -51,10 +53,10 @@ classes:
         multivalued: true
         inlined: true
 
-  # Information
-
   Data:
     description: Information about some entity produced by a planned process.
+    todos:
+      - check if this is really needed or if we are allways talking about a dataset here
 
   RawData:
     is_a: Data
@@ -82,12 +84,21 @@ classes:
     todos:
       - Review with regard to the ISA model and the controlled/independent & dependent variable part
 
+  # chemical entities
+  MaterialEntity:
+    class_uri: BFO:0000040
+    description: Material entities are three-dimensional entities (entities extended in three spatial dimensions), as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended also along the dimension of time)
+
+  ChemicalEntity:
+    class_uri: CHEBI:24431
+
   Molecule:
     description: A molecular entity
 
   ChemicalSubstance:
     description:
 
+  # devices
   Device:
     is_a: NamedThing
     class_uri:
@@ -128,7 +139,7 @@ classes:
       - produces dataset # range: Dataset - the information produced about the sample
       - has type # range: measurement technique - some class from some ontology
     examples:
-      - a certai Raman spectroscopy
+      - a certain Raman spectroscopy performed to determine the Raman shift of some sample
 
   ChemicalAnalysis:
     is_a: PlannedProcess
@@ -138,9 +149,8 @@ classes:
       - based on assay output # range: Data - the information produced by some ChemicalAssay
     examples:
       - an assignemt of chemical structures to certain peaks in a spectrum
-
-
-
+    todos:
+      - think about or the other possible slots for different kinds of chemical analyses
 
 
   SamplePreparation:
