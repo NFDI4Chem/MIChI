@@ -101,26 +101,20 @@ classes:
       entity is rather that which constitutes a chemical substance"
 
   ChemicalSubstance:
-    is_a: ChemicalEntity
+    is_a: MaterialEntity
     class_uri: CHEBI:59999
-    description: A chemical entity that is composed of parts
+    description: A MaterialEntity that is composed of multiple Chemical Entities of either the same or different kind
     slots:
       - has provenance # range: information about the chemical substance that determines where it came from
-      - has chemical substance part
+      - has chemical entity
       - has space group
     examples:
       - a polymer
       - a mixture of ethanol and methanol
+      - O2 Ti -
     comments:
       - "CHEBI definition: A chemical substance is a portion of matter of constant composition, composed of molecular
       entities of the same type or of different types."
-
-  ChemicalSubstancePart:
-    is_a: ChemicalEntity
-    description: A part of a chemical substance with a distinct identity
-    slots:
-      - is part of chemical substance
-      -
 
 
 
