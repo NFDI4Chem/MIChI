@@ -1,173 +1,343 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Analysis/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Boolean/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Boolean/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Characteristic/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/ChemicalSubstance/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/ChemicalAnalysis/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Curie/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/ChemicalAssay/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Dataset/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/ChemicalEntity/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/DatasetCollection/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/ChemicalReaction/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Date/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/ChemicalSubstance/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/DateOrDatetime/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Curie/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Datetime/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Data/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Decimal/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Dataset/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Double/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/DatasetCollection/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Float/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Date/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Integer/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/DateOrDatetime/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Jsonpath/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Datetime/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Jsonpointer/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Decimal/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/MIChI/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Device/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Molecule/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/DevicePart/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/NamedThing/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Double/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Ncname/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Float/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Nodeidentifier/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Integer/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Objectidentifier/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Jsonpath/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/PersonStatus/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Jsonpointer/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Sample/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/MaterialEntity/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Sparqlpath/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/NFDI4Chem_MIChI/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/String/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/NamedThing/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Time/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Ncname/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Uri/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Nodeidentifier/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/Uriorcurie/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Objectidentifier/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/about/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/PersonStatus/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/description/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/PlannedProcess/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/entries/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Protocol/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/id/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/RawData/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://StroemPhi.github.io/NFDI4Chem MIChI/name/</loc>
-         <lastmod>2024-05-28</lastmod>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Sample/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/SamplePreparation/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Sparqlpath/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/String/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Time/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Uri/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Uriorcurie/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/about/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/based_on_assay_output/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/composed_of_chemical_entity/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/description/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/entries/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_characteristic/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_device/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_function/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_input/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_model_number/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_output/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_part/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_quantitative_value/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_sample/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_serial_number/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_setting/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_status/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_type/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_vendor/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/has_visual_representation/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/id/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/iupac_name/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/name/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/output_of_analysis/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/output_of_sampling_process/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/produces_dataset/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/provenance/</loc>
+         <lastmod>2024-05-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://NFDI4Chem.github.io/NFDI4Chem_MIChI/space_group/</loc>
+         <lastmod>2024-05-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
