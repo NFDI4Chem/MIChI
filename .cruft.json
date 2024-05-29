@@ -4,9 +4,9 @@
   "checkout": null,
   "context": {
     "cookiecutter": {
-      "project_name": "NFDI4Chem MIChI",
+      "project_name": "MIChI",
       "__project_slug": "nfdi4chem_michi",
-      "github_org": "StroemPhi",
+      "github_org": "NFDI4Chem",
       "__source_path": "src/nfdi4chem_michi/schema/nfdi4chem_michi.yaml",
       "project_description": "This is the metadata schema for NFDI4Chem",
       "full_name": "Philip Strömert",
@@ -16,9 +16,6 @@
       "main_schema_class": "Dataset",
       "create_python_classes": "Yes",
       "use_schemasheets": "No",
-      "google_sheet_id": "1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ",
-      "google_sheet_tabs": "personinfo enums",
-      "__google_sheet_module": "personinfo_enums",
       "github_token_for_pypi_deployment": "PYPI_PASSWORD",
       "_template": "https://github.com/linkml/linkml-project-cookiecutter"
     }
