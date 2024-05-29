@@ -143,8 +143,6 @@ classes:
       - has_input
       - has_output
 
-  ChemicalReaction:
-
   ChemicalAssay:
     is_a: PlannedProcess
     class_uri: OBI:0000070
