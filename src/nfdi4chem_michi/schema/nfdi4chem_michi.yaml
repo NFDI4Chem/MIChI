@@ -51,14 +51,6 @@ classes:
         multivalued: true
         inlined: true
 
-  Data:
-    description: Information about some entity produced by a planned process.
-    todos:
-      - check if this is really needed or if we are allways talking about a dataset here
-
-  RawData:
-    is_a: Data
-
   # Directive Information
   Protocol:
     class_uri: OBI:0000272
