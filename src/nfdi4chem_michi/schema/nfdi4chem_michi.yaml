@@ -258,15 +258,15 @@ slots:
     range: Characteristic
 
 enums:
-  PersonStatus:
+  ChemicalAnalysisStatus:
     permissible_values:
-      ALIVE:
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        description: the vital status is not known
-        todos:
-          - map this to an ontology
+      PLANNED:
+        description: the chemical analysis is planned but has not been executed
+      IN_PROGRESS:
+        description: the chemical analysis is in the making
+      DONE:
+        description: the chemical analysis is in the done
+      CONFIRMED:
+        description: the chemical analysis has been confirmed by a peer
+      UNCONFIRMED:
+        description: the chemical analysis has not yet been confirmed by a peer
