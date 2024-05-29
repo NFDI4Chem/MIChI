@@ -1,13 +1,40 @@
-@prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
-@prefix nfdi4chem_michi: <https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/> .
+@prefix BFO: <http://purl.obolibrary.org/obo/BFO_> .
+@prefix CHEBI: <http://purl.obolibrary.org/obo/CHEBI_> .
+@prefix OBI: <http://purl.obolibrary.org/obo/OBI_> .
+@prefix michi: <https://w3id.org/NFDI4Chem/MIChI> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-schema1:Thing a sh:NodeShape ;
+BFO:0000040 a sh:NodeShape ;
     sh:closed true ;
-    sh:description "A generic grouping for any identifiable entity" ;
+    sh:description "Material entities are three-dimensional entities (entities extended in three spatial dimensions), as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended also along the dimension of time)" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:name ] ;
+    sh:targetClass BFO:0000040 .
+
+CHEBI:23367 a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
@@ -15,33 +42,24 @@ schema1:Thing a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path schema1:description ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path schema1:name ] ;
-    sh:targetClass schema1:Thing .
-
-nfdi4chem_michi:DatasetCollection a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A holder for Dataset objects" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class nfdi4chem_michi:Dataset ;
-            sh:nodeKind sh:IRI ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path nfdi4chem_michi:entries ] ;
-    sh:targetClass nfdi4chem_michi:DatasetCollection .
+            sh:path schema1:identifier ] ;
+    sh:targetClass CHEBI:23367 .
 
-nfdi4chem_michi:Dataset a sh:NodeShape ;
+CHEBI:59999 a sh:NodeShape ;
     sh:closed true ;
-    sh:description "Represents a Dataset" ;
+    sh:description "A MaterialEntity that is composed of multiple Chemical Entities of either the same or different kind" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:anyURI ;
             sh:description "A unique identifier for a thing" ;
@@ -50,12 +68,21 @@ nfdi4chem_michi:Dataset a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path schema1:identifier ],
-        [ sh:datatype xsd:date ;
-            sh:description "Date on which a person is born" ;
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path schema1:birthDate ],
+            sh:order 2 ;
+            sh:path michi:space_group ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path michi:iupac_name ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path michi:provenance ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
@@ -68,23 +95,368 @@ nfdi4chem_michi:Dataset a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path schema1:name ],
-        [ sh:description "living or dead status" ;
-            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path nfdi4chem_michi:vital_status ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Number of years since birth" ;
+        [ sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path nfdi4chem_michi:age_in_years ],
+            sh:order 1 ;
+            sh:path michi:composed_of_chemical_entity ] ;
+    sh:targetClass CHEBI:59999 .
+
+OBI:0000011 a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A process that is executed according to some plan or protocol" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path michi:has_output ],
         [ sh:datatype xsd:string ;
-            sh:description "The main email address of a person" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path schema1:email ;
-            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ] ;
-    sh:targetClass nfdi4chem_michi:Dataset .
+            sh:path michi:has_input ] ;
+    sh:targetClass OBI:0000011 .
+
+OBI:0000070 a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The planned process to chemically assay a sample in order to determine some characteristic of it." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path michi:has_output ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path michi:produces_dataset ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path michi:has_input ],
+        [ sh:datatype xsd:string ;
+            sh:description "A property to provide the specific type of the class it is used on." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path michi:has_type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path michi:has_device ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path michi:has_sample ] ;
+    sh:targetClass OBI:0000070 .
+
+OBI:0000272 a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The information that specifies how to execute a planned process, in terms of what steps and actions must be taken and what preconditions must be met" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass OBI:0000272 .
+
+schema1:Thing a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A generic grouping for any identifiable entity" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:identifier ] ;
+    sh:targetClass schema1:Thing .
+
+michi:Characteristic a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An attribute/characteristic of an entity (which could be a material entity, information or process)" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path michi:has_quantitative_value ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path michi:output_of_analysis ] ;
+    sh:targetClass michi:Characteristic .
+
+michi:ChemicalAnalysis a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An interpretation of the data output of a ChemicalAssay" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path michi:has_input ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path michi:has_output ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path michi:has_status ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path michi:based_on_assay_output ] ;
+    sh:targetClass michi:ChemicalAnalysis .
+
+michi:ChemicalReaction a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass michi:ChemicalReaction .
+
+michi:Data a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Information about some entity produced by a planned process." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass michi:Data .
+
+michi:DatasetCollection a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A holder for Dataset objects" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class michi:Dataset ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path michi:entries ] ;
+    sh:targetClass michi:DatasetCollection .
+
+michi:Device a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A  used within an analysis with a specific function" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path michi:has_function ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path michi:has_vendor ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "A property to provide the specific type of the class it is used on." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path michi:has_type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path michi:has_visual_representation ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path michi:has_setting ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path michi:has_part ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path michi:has_model_number ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path michi:has_serial_number ] ;
+    sh:targetClass michi:Device .
+
+michi:DevicePart a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path michi:has_serial_number ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path michi:has_vendor ],
+        [ sh:datatype xsd:string ;
+            sh:description "A property to provide the specific type of the class it is used on." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path michi:has_type ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path michi:has_visual_representation ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path michi:has_model_number ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path michi:has_part ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path michi:has_function ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path michi:has_setting ] ;
+    sh:targetClass michi:DevicePart .
+
+michi:RawData a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass michi:RawData .
+
+michi:Sample a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The material entity that is being evaluated to assay its attributes/characteristic." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path michi:output_of_sampling_process ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path michi:has_characteristic ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path schema1:description ] ;
+    sh:targetClass michi:Sample .
+
+michi:SamplePreparation a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "The process in which a sample is being generated or prepared for further analysis" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path michi:has_input ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path michi:has_output ] ;
+    sh:targetClass michi:SamplePreparation .
+
+michi:Dataset a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Represents a Dataset" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:name ] ;
+    sh:targetClass michi:Dataset .
 

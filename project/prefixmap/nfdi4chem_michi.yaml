@@ -1,11 +1,32 @@
 {
+   "BFO": "http://purl.obolibrary.org/obo/BFO_",
+   "CHEBI": "http://purl.obolibrary.org/obo/CHEBI_",
+   "OBI": "http://purl.obolibrary.org/obo/OBI_",
    "PATO": "http://purl.obolibrary.org/obo/PATO_",
    "biolink": "https://w3id.org/biolink/",
    "example": "https://example.org/",
    "linkml": "https://w3id.org/linkml/",
-   "nfdi4chem_michi": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/",
+   "michi": "https://w3id.org/NFDI4Chem/MIChI",
    "schema": "http://schema.org/",
+   "ChemicalAssay": {
+      "@id": "OBI:0000070"
+   },
+   "ChemicalEntity": {
+      "@id": "CHEBI:23367"
+   },
+   "ChemicalSubstance": {
+      "@id": "CHEBI:59999"
+   },
+   "MaterialEntity": {
+      "@id": "BFO:0000040"
+   },
    "NamedThing": {
       "@id": "schema:Thing"
+   },
+   "PlannedProcess": {
+      "@id": "OBI:0000011"
+   },
+   "Protocol": {
+      "@id": "OBI:0000272"
    }
 }

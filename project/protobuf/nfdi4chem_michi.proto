@@ -1,21 +1,95 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
+// An attribute/characteristic of an entity (which could be a material entity, information or process)
+message Characteristic
+ {
+  string hasQuantitativeValue = 0
+  string outputOfAnalysis = 0
+ }
+// An interpretation of the data output of a ChemicalAssay
+message ChemicalAnalysis
+ {
+  string hasInput = 0
+  string hasOutput = 0
+  string hasStatus = 0
+  string basedOnAssayOutput = 0
+ }
+// The planned process to chemically assay a sample in order to determine some characteristic of it.
+message ChemicalAssay
+ {
+  string hasInput = 0
+  string hasOutput = 0
+  string hasSample = 0
+  string hasDevice = 0
+  string producesDataset = 0
+  string hasType = 0
+ }
+// Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity.
+message ChemicalEntity
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }
+// A MaterialEntity that is composed of multiple Chemical Entities of either the same or different kind
+message ChemicalSubstance
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string provenance = 0
+  string composedOfChemicalEntity = 0
+  string spaceGroup = 0
+  string iupacName = 0
+ }
 // Represents a Dataset
 message Dataset
  {
   uriorcurie id = 0
   string name = 0
   string description = 0
-  string primaryEmail = 0
-  date birthDate = 0
-  integer ageInYears = 0
-  personStatus vitalStatus = 0
  }
 // A holder for Dataset objects
 message DatasetCollection
  {
  repeated  dataset entries = 0
+ }
+// A  used within an analysis with a specific function
+message Device
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string hasPart = 0
+  string hasVendor = 0
+  string hasSerialNumber = 0
+  string hasModelNumber = 0
+  string hasFunction = 0
+  string hasSetting = 0
+  string hasVisualRepresentation = 0
+  string hasType = 0
+ }
+message DevicePart
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string hasPart = 0
+  string hasVendor = 0
+  string hasSerialNumber = 0
+  string hasModelNumber = 0
+  string hasFunction = 0
+  string hasSetting = 0
+  string hasVisualRepresentation = 0
+  string hasType = 0
+ }
+// Material entities are three-dimensional entities (entities extended in three spatial dimensions), as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended also along the dimension of time)
+message MaterialEntity
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
  }
 // A generic grouping for any identifiable entity
 message NamedThing
@@ -23,4 +97,25 @@ message NamedThing
   uriorcurie id = 0
   string name = 0
   string description = 0
+ }
+// A process that is executed according to some plan or protocol
+message PlannedProcess
+ {
+  string hasInput = 0
+  string hasOutput = 0
+ }
+// The material entity that is being evaluated to assay its attributes/characteristic.
+message Sample
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string outputOfSamplingProcess = 0
+  string hasCharacteristic = 0
+ }
+// The process in which a sample is being generated or prepared for further analysis
+message SamplePreparation
+ {
+  string hasInput = 0
+  string hasOutput = 0
  }

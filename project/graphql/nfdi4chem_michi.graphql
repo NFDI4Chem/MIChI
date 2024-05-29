@@ -1,13 +1,59 @@
 # metamodel_version: 1.7.0
+type Characteristic
+  {
+    hasQuantitativeValue: String
+    outputOfAnalysis: String
+  }
+
+type ChemicalAnalysis
+  {
+    hasInput: String
+    hasOutput: String
+    hasStatus: String
+    basedOnAssayOutput: String
+  }
+
+type ChemicalAssay
+  {
+    hasInput: String
+    hasOutput: String
+    hasSample: String
+    hasDevice: String
+    producesDataset: String
+    hasType: String
+  }
+
+type ChemicalEntity
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type ChemicalReaction
+  {
+  }
+
+type ChemicalSubstance
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    provenance: String
+    composedOfChemicalEntity: String
+    spaceGroup: String
+    iupacName: String
+  }
+
+type Data
+  {
+  }
+
 type Dataset
   {
     id: Uriorcurie!
     name: String
     description: String
-    primaryEmail: String
-    birthDate: Date
-    ageInYears: Integer
-    vitalStatus: PersonStatus
   }
 
 type DatasetCollection
@@ -15,10 +61,76 @@ type DatasetCollection
     entries: [Dataset]
   }
 
+type Device
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    hasPart: String
+    hasVendor: String
+    hasSerialNumber: String
+    hasModelNumber: String
+    hasFunction: String
+    hasSetting: String
+    hasVisualRepresentation: String
+    hasType: String
+  }
+
+type DevicePart
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    hasPart: String
+    hasVendor: String
+    hasSerialNumber: String
+    hasModelNumber: String
+    hasFunction: String
+    hasSetting: String
+    hasVisualRepresentation: String
+    hasType: String
+  }
+
+type MaterialEntity
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
 type NamedThing
   {
     id: Uriorcurie!
     name: String
     description: String
+  }
+
+type PlannedProcess
+  {
+    hasInput: String
+    hasOutput: String
+  }
+
+type Protocol
+  {
+  }
+
+type RawData
+  {
+  }
+
+type Sample
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    outputOfSamplingProcess: String
+    hasCharacteristic: String
+  }
+
+type SamplePreparation
+  {
+    hasInput: String
+    hasOutput: String
   }
 

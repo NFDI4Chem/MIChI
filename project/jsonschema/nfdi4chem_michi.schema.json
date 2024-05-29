@@ -1,18 +1,73 @@
 {
     "$defs": {
-        "Dataset": {
+        "Characteristic": {
             "additionalProperties": false,
-            "description": "Represents a Dataset",
+            "description": "An attribute/characteristic of an entity (which could be a material entity, information or process)",
             "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": "integer"
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
+                "has_quantitative_value": {
                     "type": "string"
                 },
+                "output_of_analysis": {
+                    "type": "string"
+                }
+            },
+            "title": "Characteristic",
+            "type": "object"
+        },
+        "ChemicalAnalysis": {
+            "additionalProperties": false,
+            "description": "An interpretation of the data output of a ChemicalAssay",
+            "properties": {
+                "based_on_assay_output": {
+                    "type": "string"
+                },
+                "has_input": {
+                    "type": "string"
+                },
+                "has_output": {
+                    "type": "string"
+                },
+                "has_status": {
+                    "type": "string"
+                }
+            },
+            "title": "ChemicalAnalysis",
+            "type": "object"
+        },
+        "ChemicalAssay": {
+            "additionalProperties": false,
+            "description": "The planned process to chemically assay a sample in order to determine some characteristic of it.",
+            "properties": {
+                "has_device": {
+                    "type": "string"
+                },
+                "has_input": {
+                    "type": "string"
+                },
+                "has_output": {
+                    "type": "string"
+                },
+                "has_sample": {
+                    "type": "string"
+                },
+                "has_type": {
+                    "description": "A property to provide the specific type of the class it is used on.",
+                    "enum": [
+                        "ChemicalAssay"
+                    ],
+                    "type": "string"
+                },
+                "produces_dataset": {
+                    "type": "string"
+                }
+            },
+            "title": "ChemicalAssay",
+            "type": "object"
+        },
+        "ChemicalEntity": {
+            "additionalProperties": false,
+            "description": "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity.",
+            "properties": {
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -24,15 +79,76 @@
                 "name": {
                     "description": "A human-readable name for a thing",
                     "type": "string"
-                },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "ChemicalEntity",
+            "type": "object"
+        },
+        "ChemicalReaction": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "ChemicalReaction",
+            "type": "object"
+        },
+        "ChemicalSubstance": {
+            "additionalProperties": false,
+            "description": "A MaterialEntity that is composed of multiple Chemical Entities of either the same or different kind",
+            "properties": {
+                "composed_of_chemical_entity": {
                     "type": "string"
                 },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "iupac_name": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "provenance": {
+                    "type": "string"
+                },
+                "space_group": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "ChemicalSubstance",
+            "type": "object"
+        },
+        "Data": {
+            "additionalProperties": false,
+            "description": "Information about some entity produced by a planned process.",
+            "title": "Data",
+            "type": "object"
+        },
+        "Dataset": {
+            "additionalProperties": false,
+            "description": "Represents a Dataset",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
                 }
             },
             "required": [
@@ -66,15 +182,6 @@
             "additionalProperties": false,
             "description": "Represents a Dataset",
             "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": "integer"
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
-                    "type": "string"
-                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -86,19 +193,135 @@
                 "name": {
                     "description": "A human-readable name for a thing",
                     "type": "string"
-                },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
-                    "type": "string"
-                },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
                 }
             },
             "required": [],
             "title": "Dataset",
+            "type": "object"
+        },
+        "Device": {
+            "additionalProperties": false,
+            "description": "A  used within an analysis with a specific function",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_function": {
+                    "type": "string"
+                },
+                "has_model_number": {
+                    "type": "string"
+                },
+                "has_part": {
+                    "type": "string"
+                },
+                "has_serial_number": {
+                    "type": "string"
+                },
+                "has_setting": {
+                    "type": "string"
+                },
+                "has_type": {
+                    "description": "A property to provide the specific type of the class it is used on.",
+                    "enum": [
+                        "Device"
+                    ],
+                    "type": "string"
+                },
+                "has_vendor": {
+                    "type": "string"
+                },
+                "has_visual_representation": {
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Device",
+            "type": "object"
+        },
+        "DevicePart": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_function": {
+                    "type": "string"
+                },
+                "has_model_number": {
+                    "type": "string"
+                },
+                "has_part": {
+                    "type": "string"
+                },
+                "has_serial_number": {
+                    "type": "string"
+                },
+                "has_setting": {
+                    "type": "string"
+                },
+                "has_type": {
+                    "description": "A property to provide the specific type of the class it is used on.",
+                    "enum": [
+                        "DevicePart"
+                    ],
+                    "type": "string"
+                },
+                "has_vendor": {
+                    "type": "string"
+                },
+                "has_visual_representation": {
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "DevicePart",
+            "type": "object"
+        },
+        "MaterialEntity": {
+            "additionalProperties": false,
+            "description": "Material entities are three-dimensional entities (entities extended in three spatial dimensions), as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended also along the dimension of time)",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "MaterialEntity",
             "type": "object"
         },
         "NamedThing": {
@@ -133,9 +356,78 @@
             ],
             "title": "PersonStatus",
             "type": "string"
+        },
+        "PlannedProcess": {
+            "additionalProperties": false,
+            "description": "A process that is executed according to some plan or protocol",
+            "properties": {
+                "has_input": {
+                    "type": "string"
+                },
+                "has_output": {
+                    "type": "string"
+                }
+            },
+            "title": "PlannedProcess",
+            "type": "object"
+        },
+        "Protocol": {
+            "additionalProperties": false,
+            "description": "The information that specifies how to execute a planned process, in terms of what steps and actions must be taken and what preconditions must be met",
+            "title": "Protocol",
+            "type": "object"
+        },
+        "RawData": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "RawData",
+            "type": "object"
+        },
+        "Sample": {
+            "additionalProperties": false,
+            "description": "The material entity that is being evaluated to assay its attributes/characteristic.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_characteristic": {
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "output_of_sampling_process": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Sample",
+            "type": "object"
+        },
+        "SamplePreparation": {
+            "additionalProperties": false,
+            "description": "The process in which a sample is being generated or prepared for further analysis",
+            "properties": {
+                "has_input": {
+                    "type": "string"
+                },
+                "has_output": {
+                    "type": "string"
+                }
+            },
+            "title": "SamplePreparation",
+            "type": "object"
         }
     },
-    "$id": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
+    "$id": "https://w3id.org/NFDI4Chem/MIChI",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "A holder for Dataset objects",
