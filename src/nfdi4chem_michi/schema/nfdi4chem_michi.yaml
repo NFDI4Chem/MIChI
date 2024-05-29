@@ -38,7 +38,7 @@ classes:
   # Information
   Dataset:
     mixins:
-      - NamedThing
+      - MinimalMetadataMixin
     description: >-
       Represents a Dataset
 
@@ -68,7 +68,7 @@ classes:
   MaterialEntity:
     class_uri: BFO:0000040
     mixins:
-      - NamedThing
+      - MinimalMetadataMixin
     description: "Material entities are three-dimensional entities (entities extended in three spatial dimensions), 
     as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended 
     also along the dimension of time)"
@@ -136,7 +136,7 @@ classes:
 
   PlannedProcess:
     mixins:
-      - NamedThing
+      - MinimalMetadataMixin
     class_uri: OBI:0000011
     description: A process that is executed according to some plan or protocol
     slots:
@@ -173,7 +173,7 @@ classes:
 
   ChemicalReaction:
     mixins:
-      - NamedThing
+      - MinimalMetadataMixin
     description: A process between multiple chemical entities of a different kind.
     todos:
       - improve description
