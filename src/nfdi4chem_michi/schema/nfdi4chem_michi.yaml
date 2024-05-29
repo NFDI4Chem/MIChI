@@ -42,6 +42,8 @@ classes:
       - MinimalMetadataMixin
     description: >-
       Represents a Dataset
+    comments:
+      - "PS: wasn't discussed in the Halle Metadatathon"
 
   DatasetCollection:
     tree_root: true
@@ -52,11 +54,16 @@ classes:
         range: Dataset
         multivalued: true
         inlined: true
+    comments:
+      - "PS: wasn't discussed in the Halle Metadatathon"
 
   # Directive Information
   Protocol:
     class_uri: OBI:0000272
-    description: The information that specifies how to execute a planned process, in terms of what steps and actions must be taken and what preconditions must be met
+    description: "The information that specifies how to execute a planned process, in terms of what steps and actions 
+    must be taken and what preconditions must be met"
+    comments:
+      - "PS: wasn't discussed in the Halle Metadatathon"
 
   # Attributes
   Characteristic:
@@ -118,7 +125,7 @@ classes:
     description: A  used within an analysis with a specific function
     slots:
       - has_part # another device
-      - has_vendor
+      - has_manufacturer
       - has_serial_number
       - has_model_number # the specific information of what model within a model family e.g. Lattitude 5310 of the Dell Lattitude family
       - has_function # range Function, the main function of the device -> what it can measure
@@ -128,6 +135,8 @@ classes:
 
   DevicePart:
     is_a: Device
+    description: A device which function is to be a part of another device that is used within a chemical assay.
+
 
   # Processes
   PlannedProcess:
@@ -138,6 +147,8 @@ classes:
     slots:
       - has_input
       - has_output
+    comments:
+      - "PS: unsure if we really need this abstract class or if its children would suffice"
 
   ChemicalAssay:
     is_a: PlannedProcess
@@ -155,7 +166,7 @@ classes:
     is_a: PlannedProcess
     description: An interpretation of the data output of a ChemicalAssay
     slots:
-      - has_status # range: StatusEnum - planned, in progress, done/finished, confirmed, unconfirmed
+      - has_status # range: ChemicalAnalysisStatus enum - planned, in progress, done/finished, confirmed, unconfirmed
       - based_on_assay_output # range: Data - the information produced by some ChemicalAssay
     comments:
       - "Examples: an assignment of chemical structures to certain peaks in a spectrum"
