@@ -13,6 +13,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   schema: http://schema.org/
+  dct: http://purl.org/dc/terms/
   PATO: http://purl.obolibrary.org/obo/PATO_
   OBI: http://purl.obolibrary.org/obo/OBI_
   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
@@ -26,20 +27,23 @@ imports:
 
 classes:
 
-  NamedThing:
+  MinimalMetadataMixin:
     description: >-
-      A generic grouping for any identifiable entity
+      A mixin with the minimal required slots of a class in this schema.
+    mixin: true
     slots:
       - id
       - name
       - description
-    class_uri: schema:Thing
 
   # Information
   Dataset:
-    is_a: NamedThing
+    mixins:
+      - MinimalMetadataMixin
     description: >-
       Represents a Dataset
+    comments:
+      - "PS: wasn't discussed in the Halle Metadatathon"
 
   DatasetCollection:
     tree_root: true
@@ -50,30 +54,36 @@ classes:
         range: Dataset
         multivalued: true
         inlined: true
-
-  Data:
-    description: Information about some entity produced by a planned process.
-    todos:
-      - check if this is really needed or if we are allways talking about a dataset here
-
-  RawData:
-    is_a: Data
+    comments:
+      - "PS: wasn't discussed in the Halle Metadatathon"
 
   # Directive Information
   Protocol:
     class_uri: OBI:0000272
-    description: The information that specifies how to execute a planned process, in terms of what steps and actions must be taken and what preconditions must be met
+    description: "The information that specifies how to execute a planned process, in terms of what steps and actions 
+    must be taken and what preconditions must be met"
+    comments:
+      - "PS: wasn't discussed in the Halle Metadatathon"
 
   # Attributes
   Characteristic:
+    class_uri: BFO:0000020
     description: An attribute/characteristic of an entity (which could be a material entity, information or process)
     slots:
       - has_quantitative_value # range: data item with value specification of unit and precision
       - output_of_analysis # range: analysis that determined this characteristic
 
   # Material entities
+  MaterialEntity:
+    class_uri: BFO:0000040
+    mixins:
+      - MinimalMetadataMixin
+    description: "Material entities are three-dimensional entities (entities extended in three spatial dimensions), 
+    as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended 
+    also along the dimension of time)"
+
   Sample:
-    is_a: NamedThing
+    is_a: MaterialEntity
     description: The material entity that is being evaluated to assay its attributes/characteristic.
     slots:
       - output_of_sampling_process # rang: sampling process - which is the process that determines where it came from
@@ -82,18 +92,13 @@ classes:
       - "Review with regard to the ISA model and the controlled/independent & dependent variable part"
 
   # chemical entities
-  MaterialEntity:
-    class_uri: BFO:0000040
-    is_a: NamedThing
-    description: "Material entities are three-dimensional entities (entities extended in three spatial dimensions), 
-    as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended 
-    also along the dimension of time)"
-
   ChemicalEntity:
     is_a: MaterialEntity
     class_uri: CHEBI:23367
     description: "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, 
     complex, conformer etc., identifiable as a separately distinguishable entity."
+    slots:
+      - iupac_name
     comments:
       - "This is actually mapped to CHEBI:molecular entity (CHEBI:23367), from which we just copied the definition 
       into our description. We did so to be able to reuse the label Chemical Entity. We do not use (ignore) the 
@@ -110,8 +115,6 @@ classes:
       - composed_of_chemical_entity # range: chemical entity - relation
       - space_group
       - iupac_name
-    examples:
-
     comments:
       - "CHEBI definition: A chemical substance is a portion of matter of constant composition, composed of molecular
       entities of the same type or of different types."
@@ -121,11 +124,11 @@ classes:
 
   # devices
   Device:
-    is_a: NamedThing
+    is_a: MaterialEntity
     description: A  used within an analysis with a specific function
     slots:
       - has_part # another device
-      - has_vendor
+      - has_manufacturer
       - has_serial_number
       - has_model_number # the specific information of what model within a model family e.g. Lattitude 5310 of the Dell Lattitude family
       - has_function # range Function, the main function of the device -> what it can measure
@@ -135,19 +138,20 @@ classes:
 
   DevicePart:
     is_a: Device
-
+    description: A device which function is to be a part of another device that is used within a chemical assay.
 
 
   # Processes
-
   PlannedProcess:
+    mixins:
+      - MinimalMetadataMixin
     class_uri: OBI:0000011
     description: A process that is executed according to some plan or protocol
     slots:
       - has_input
       - has_output
-
-  ChemicalReaction:
+    comments:
+      - "PS: unsure if we really need this abstract class or if its children would suffice"
 
   ChemicalAssay:
     is_a: PlannedProcess
@@ -165,72 +169,118 @@ classes:
     is_a: PlannedProcess
     description: An interpretation of the data output of a ChemicalAssay
     slots:
-      - has_status # range: StatusEnum - planned, in progress, done/finished, confirmed, unconfirmed
+      - has_status # range: ChemicalAnalysisStatus enum - planned, in progress, done/finished, confirmed, unconfirmed
       - based_on_assay_output # range: Data - the information produced by some ChemicalAssay
     comments:
       - "Examples: an assignment of chemical structures to certain peaks in a spectrum"
     todos:
       - think about or the other possible slots for different kinds of chemical analyses
 
-
   SamplePreparation:
     is_a: PlannedProcess
     description: The process in which a sample is being generated or prepared for further analysis
+
+  ChemicalReaction:
+    mixins:
+      - MinimalMetadataMixin
+    description: A process between multiple chemical entities of a different kind.
+    todos:
+      - improve description
+
 
 # Slots
 slots:
   id:
     identifier: true
-    slot_uri: schema:identifier
+    slot_uri: dct:identifier
     range: uriorcurie
-    description: A unique identifier for a thing
+    description: A property to provide the unique identifier for a thing
   name:
-    slot_uri: schema:name
-    description: A human-readable name for a thing
+    slot_uri: dct:title
+    description: A property to provide the human-readable name for a thing
   description:
-    slot_uri: schema:description
-    description: A human-readable description for a thing
+    slot_uri: dct:description
+    description: A property to provide the human-readable description for a thing
   has_input:
+    description: A property to provide the input of a process.
+    domain: PlannedProcess
   has_output:
+    description: A property to provide the output of a proces.
+    domain: PlannedProcess
   has_sample:
     is_a: has_input
+    description: A property to provide the sample being evaluated in a ChemicalAssay
+    domain: ChemicalAssay
   has_device:
     is_a: has_input
+    description: A property to provide the device being used in a ChemicalAssay
+    domain: ChemicalAssay
   produces_dataset:
     is_a: has_output
+    description: A property to provide the dataset being produced by a ChemicalAnalysis or ChemicalAssay
+    domain: ChemicalAssay
   has_quantitative_value:
+    description: A property to provide the qualitative value of a characteristic
+    domain: Characteristic
   output_of_analysis:
+    description: A property to provide the chemical analysis or assay that determined the characteristic
+    domain: Characteristic
   has_status:
+    description: A property to provide the status of a ChemicalAnalysis
+    domain: ChemicalAnalysis
+    range: ChemicalAnalysisStatus
   based_on_assay_output:
+    description: The status of a ChemicalAnalysis
+    domain: ChemicalAnalysis
   has_type:
     designates_type: true
     description: A property to provide the specific type of the class it is used on.
     todos:
       - Reread the LinkML docs to find out how to implement this properly
   has_part:
-  has_vendor:
+    description: A property to provide the part of a device
+  has_manufacturer:
+    description: A property to provide the vendor of a device
   has_serial_number:
+    description: A property to provide the serial number of a device
   has_model_number:
+    description: A property to provide the model number of a device
   has_function:
+    description: A property to provide the specific function of a device
   has_setting:
+    description: A property to provide a specific setting of a device
   has_visual_representation:
+    description: A property to provide a visualization of a device, such as an image, scetch or schematic drawing.
   provenance:
+    description: A property to provide a specific setting of a device
+    domain: ChemicalSubstance
   composed_of_chemical_entity:
+    description: A property to provide the chemical entities of which a chemical substance is composed of.
+    domain: ChemicalSubstance
+    multivalued: true
   space_group:
+    description: A property to provide the space group of a Chemical Substance.
+    domain: ChemicalSubstance
   iupac_name:
+    description: A property to provide the IUPAC name of a Chemical Substance or Chemical Entity.
   output_of_sampling_process:
+    description: A property to link a sample to its creation process.
+    domain: Sample
+    range: SamplePreparation
   has_characteristic:
+    description: A property to provide a Characteristic of a Material Entity, such as a Sample, or a Process
+    range: Characteristic
 
 enums:
-  PersonStatus:
+  ChemicalAnalysisStatus:
     permissible_values:
-      ALIVE:
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        description: the vital status is not known
-        todos:
-          - map this to an ontology
+      PLANNED:
+        description: the chemical analysis is planned but has not been executed
+      IN_PROGRESS:
+        description: the chemical analysis is in the making
+      DONE:
+        description: the chemical analysis is in the done
+      CONFIRMED:
+        description: the chemical analysis has been confirmed by a peer
+      UNCONFIRMED:
+        description: the chemical analysis has not yet been confirmed by a peer
