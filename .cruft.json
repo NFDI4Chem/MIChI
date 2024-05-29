@@ -16,10 +16,10 @@
       "main_schema_class": "Dataset",
       "create_python_classes": "Yes",
       "use_schemasheets": "No",
-      "google_sheet_id": "\"\"",
-      "google_sheet_tabs": "\"\"",
-      "__google_sheet_module": "\"\"",
-      "github_token_for_pypi_deployment": "\"\"",
+      "google_sheet_id": "",
+      "google_sheet_tabs": "",
+      "__google_sheet_module": "",
+      "github_token_for_pypi_deployment": "",
       "_template": "https://github.com/linkml/linkml-project-cookiecutter"
     }
   },
