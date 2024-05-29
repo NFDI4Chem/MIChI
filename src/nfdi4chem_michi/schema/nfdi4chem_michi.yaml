@@ -1,7 +1,7 @@
 ---
-id: https://w3id.org/StroemPhi/NFDI4Chem_MIChI
+id: https://w3id.org/NFDI4Chem/MIChI
 name: NFDI4Chem_MIChI
-title: NFDI4Chem_MIChI
+title: NFDI4Chem MIChI
 description: |-
   This is the LinkML metadata schema prototype for NFDI4Chem
 license: MIT
@@ -16,6 +16,7 @@ prefixes:
   PATO: http://purl.obolibrary.org/obo/PATO_
   OBI: http://purl.obolibrary.org/obo/OBI_
   CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+  BFO: http://purl.obolibrary.org/obo/BFO_
   example: https://example.org/
 default_prefix: michi
 default_range: string
@@ -75,10 +76,10 @@ classes:
     is_a: NamedThing
     description: The material entity that is being evaluated to assay its attributes/characteristic.
     slots:
-      - output of sampling process # rang: sampling process - which is the process that determines where it came from
-      - has characteristic # range: characteristic - the quality being determined by an analysis/assay
+      - output_of_sampling_process # rang: sampling process - which is the process that determines where it came from
+      - has_characteristic # range: characteristic - the quality being determined by an analysis/assay
     todos:
-      - Review with regard to the ISA model and the controlled/independent & dependent variable part
+      - "Review with regard to the ISA model and the controlled/independent & dependent variable part"
 
   # chemical entities
   MaterialEntity:
@@ -97,8 +98,8 @@ classes:
       - "This is actually mapped to CHEBI:molecular entity (CHEBI:23367), from which we just copied the definition 
       into our description. We did so to be able to reuse the label Chemical Entity. We do not use (ignore) the 
       chemical entity class from CHEBI as this is only a grouping class, and chemical entity is rather that which constitutes a chemical substance"
-      - There was the issue with theoretical chemist postulating chemical entities that are not physical existing -->
-        write/ask in the OBO or BFO discuss list ?
+      - "There was the issue with theoretical chemist postulating chemical entities that are not physical existing -->
+        write/ask in the OBO or BFO discuss list?"
 
   ChemicalSubstance:
     is_a: MaterialEntity
@@ -110,21 +111,17 @@ classes:
       - space_group
       - iupac_name
     examples:
-      - a polymer
-      - a mixture of ethanol and methanol
-      - O2 Ti
+
     comments:
       - "CHEBI definition: A chemical substance is a portion of matter of constant composition, composed of molecular
       entities of the same type or of different types."
+      - "Examples: a polymer, a mixture of ethanol and methanol, O2 Ti"
     todos:
       - we need to describe ratios of chemical entities in a chemical substance
-
-
 
   # devices
   Device:
     is_a: NamedThing
-    class_uri:
     description: A  used within an analysis with a specific function
     slots:
       - has_part # another device
@@ -145,7 +142,7 @@ classes:
 
   PlannedProcess:
     class_uri: OBI:0000011
-    description: A process that is executed according to some plan or protocoll
+    description: A process that is executed according to some plan or protocol
     slots:
       - has_input
       - has_output
@@ -161,8 +158,8 @@ classes:
       - has_device # range: device used to evaluate the sample
       - produces_dataset # range: Dataset - the information produced about the sample
       - has_type # range: measurement technique - some class from some ontology
-    examples:
-      - a certain Raman spectroscopy performed to determine the Raman shift of some sample
+    comments:
+      - "Examples: a certain Raman spectroscopy performed to determine the Raman shift of some sample"
 
   ChemicalAnalysis:
     is_a: PlannedProcess
@@ -170,8 +167,8 @@ classes:
     slots:
       - has_status # range: StatusEnum - planned, in progress, done/finished, confirmed, unconfirmed
       - based_on_assay_output # range: Data - the information produced by some ChemicalAssay
-    examples:
-      - an assignemt of chemical structures to certain peaks in a spectrum
+    comments:
+      - "Examples: an assignment of chemical structures to certain peaks in a spectrum"
     todos:
       - think about or the other possible slots for different kinds of chemical analyses
 
@@ -202,9 +199,14 @@ slots:
   produces_dataset:
     is_a: has_output
   has_quantitative_value:
+  output_of_analysis:
   has_status:
   based_on_assay_output:
   has_type:
+    designates_type: true
+    description: A property to provide the specific type of the class it is used on.
+    todos:
+      - Reread the LinkML docs to find out how to implement this properly
   has_part:
   has_vendor:
   has_serial_number:
@@ -216,6 +218,8 @@ slots:
   composed_of_chemical_entity:
   space_group:
   iupac_name:
+  output_of_sampling_process:
+  has_characteristic:
 
 enums:
   PersonStatus:
