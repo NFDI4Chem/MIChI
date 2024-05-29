@@ -3,19 +3,15 @@
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
 -- # Class: "Dataset" Description: "Represents a Dataset"
+--     * Slot: primary_email Description: The main email address of a person
+--     * Slot: birth_date Description: Date on which a person is born
+--     * Slot: age_in_years Description: Number of years since birth
+--     * Slot: vital_status Description: living or dead status
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
 --     * Slot: DatasetCollection_id Description: Autocreated FK slot
 -- # Class: "DatasetCollection" Description: "A holder for Dataset objects"
---     * Slot: id Description: 
--- # Class: "Sample" Description: "The material entity that is being evaluated."
---     * Slot: id Description: 
--- # Class: "Molecule" Description: "A molecular entity"
---     * Slot: id Description: 
--- # Class: "Chemical_Substance" Description: ""
---     * Slot: id Description: 
--- # Class: "Analysis" Description: "The planned process to analyse/assay a sample."
 --     * Slot: id Description: 
 
 CREATE TABLE "NamedThing" (
@@ -28,23 +24,11 @@ CREATE TABLE "DatasetCollection" (
 	id INTEGER NOT NULL, 
 	PRIMARY KEY (id)
 );
-CREATE TABLE "Sample" (
-	id INTEGER NOT NULL, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "Molecule" (
-	id INTEGER NOT NULL, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "Chemical_Substance" (
-	id INTEGER NOT NULL, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "Analysis" (
-	id INTEGER NOT NULL, 
-	PRIMARY KEY (id)
-);
 CREATE TABLE "Dataset" (
+	primary_email TEXT, 
+	birth_date DATE, 
+	age_in_years INTEGER, 
+	vital_status VARCHAR(7), 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 

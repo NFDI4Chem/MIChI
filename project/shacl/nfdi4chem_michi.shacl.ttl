@@ -1,70 +1,13 @@
-@prefix OBI: <http://purl.obolibrary.org/obo/OBI_> .
-@prefix michi: <https://w3id.org/NFDI4Chem/MIChI> .
+@prefix PATO: <http://purl.obolibrary.org/obo/PATO_> .
+@prefix nfdi4chem_michi: <https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-OBI:0001209 a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "The planned process to analyse/assay a sample." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass OBI:0001209 .
-
 schema1:Thing a sh:NodeShape ;
     sh:closed true ;
     sh:description "A generic grouping for any identifiable entity" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path schema1:description ] ;
-    sh:targetClass schema1:Thing .
-
-michi:ChemicalSubstance a sh:NodeShape ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass michi:ChemicalSubstance .
-
-michi:DatasetCollection a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A holder for Dataset objects" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class michi:Dataset ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path michi:entries ] ;
-    sh:targetClass michi:DatasetCollection .
-
-michi:Molecule a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A molecular entity" ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass michi:Molecule .
-
-michi:Sample a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "The material entity that is being evaluated." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass michi:Sample .
-
-michi:Dataset a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Represents a Dataset" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
@@ -75,7 +18,6 @@ michi:Dataset a sh:NodeShape ;
         [ sh:datatype xsd:anyURI ;
             sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path schema1:identifier ],
@@ -85,5 +27,64 @@ michi:Dataset a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path schema1:name ] ;
-    sh:targetClass michi:Dataset .
+    sh:targetClass schema1:Thing .
+
+nfdi4chem_michi:DatasetCollection a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A holder for Dataset objects" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class nfdi4chem_michi:Dataset ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path nfdi4chem_michi:entries ] ;
+    sh:targetClass nfdi4chem_michi:DatasetCollection .
+
+nfdi4chem_michi:Dataset a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "Represents a Dataset" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:date ;
+            sh:description "Date on which a person is born" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path schema1:birthDate ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:description "living or dead status" ;
+            sh:in ( PATO:0001421 PATO:0001422 "UNKNOWN" ) ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path nfdi4chem_michi:vital_status ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Number of years since birth" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path nfdi4chem_michi:age_in_years ],
+        [ sh:datatype xsd:string ;
+            sh:description "The main email address of a person" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path schema1:email ;
+            sh:pattern "^\\S+@[\\S+\\.]+\\S+" ] ;
+    sh:targetClass nfdi4chem_michi:Dataset .
 

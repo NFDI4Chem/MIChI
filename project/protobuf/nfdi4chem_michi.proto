@@ -8,6 +8,9 @@ message Dataset
   string name = 0
   string description = 0
   string primaryEmail = 0
+  date birthDate = 0
+  integer ageInYears = 0
+  personStatus vitalStatus = 0
  }
 // A holder for Dataset objects
 message DatasetCollection

@@ -1,18 +1,13 @@
 # metamodel_version: 1.7.0
-type Analysis
-  {
-  }
-
-type ChemicalSubstance
-  {
-  }
-
 type Dataset
   {
     id: Uriorcurie!
     name: String
     description: String
     primaryEmail: String
+    birthDate: Date
+    ageInYears: Integer
+    vitalStatus: PersonStatus
   }
 
 type DatasetCollection
@@ -20,18 +15,10 @@ type DatasetCollection
     entries: [Dataset]
   }
 
-type Molecule
-  {
-  }
-
 type NamedThing
   {
     id: Uriorcurie!
     name: String
     description: String
-  }
-
-type Sample
-  {
   }
 

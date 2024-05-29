@@ -1,19 +1,19 @@
 {
-  "name": "MIChI",
-  "description": "This is the metadata schema for NFDI4Chem",
-  "title": "MIChI",
+  "name": "NFDI4Chem_MIChI",
+  "description": "This is the LinkML metadata schema prototype for NFDI4Chem",
+  "title": "NFDI4Chem_MIChI",
   "see_also": [
-    "https://w3id.org/NFDI4Chem/MIChI"
+    "https://NFDI4Chem.github.io/NFDI4Chem_MIChI"
   ],
-  "id": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+  "id": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
   "imports": [
     "linkml:types"
   ],
   "license": "MIT",
   "prefixes": [
     {
-      "prefix_prefix": "michi",
-      "prefix_reference": "https://w3id.org/NFDI4Chem/MIChI"
+      "prefix_prefix": "nfdi4chem_michi",
+      "prefix_reference": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/"
     },
     {
       "prefix_prefix": "linkml",
@@ -32,15 +32,11 @@
       "prefix_reference": "http://purl.obolibrary.org/obo/PATO_"
     },
     {
-      "prefix_prefix": "OBI",
-      "prefix_reference": "http://purl.obolibrary.org/obo/OBI_"
-    },
-    {
       "prefix_prefix": "example",
       "prefix_reference": "https://example.org/"
     }
   ],
-  "default_prefix": "michi",
+  "default_prefix": "nfdi4chem_michi",
   "default_range": "string",
   "types": [
     {
@@ -355,8 +351,8 @@
   "enums": [
     {
       "name": "PersonStatus",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIPersonStatus",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/PersonStatus",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
       "permissible_values": [
         {
           "text": "ALIVE",
@@ -381,9 +377,9 @@
   "slots": [
     {
       "name": "id",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIid",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/id",
       "description": "A unique identifier for a thing",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
       "mappings": [
         "http://schema.org/identifier"
       ],
@@ -399,9 +395,9 @@
     },
     {
       "name": "name",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIname",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/name",
       "description": "A human-readable name for a thing",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
       "mappings": [
         "http://schema.org/name"
       ],
@@ -415,9 +411,9 @@
     },
     {
       "name": "description",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIdescription",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/description",
       "description": "A human-readable description for a thing",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
       "mappings": [
         "http://schema.org/description"
       ],
@@ -430,9 +426,67 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "primary_email",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/primary_email",
+      "description": "The main email address of a person",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
+      "mappings": [
+        "http://schema.org/email"
+      ],
+      "slot_uri": "http://schema.org/email",
+      "owner": "Dataset",
+      "domain_of": [
+        "Dataset"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "birth_date",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/birth_date",
+      "description": "Date on which a person is born",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
+      "mappings": [
+        "http://schema.org/birthDate"
+      ],
+      "slot_uri": "http://schema.org/birthDate",
+      "owner": "Dataset",
+      "domain_of": [
+        "Dataset"
+      ],
+      "range": "date",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "age_in_years",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/age_in_years",
+      "description": "Number of years since birth",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
+      "slot_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/age_in_years",
+      "owner": "Dataset",
+      "domain_of": [
+        "Dataset"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "vital_status",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/vital_status",
+      "description": "living or dead status",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
+      "slot_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/vital_status",
+      "owner": "Dataset",
+      "domain_of": [
+        "Dataset"
+      ],
+      "range": "PersonStatus",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "datasetCollection__entries",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
-      "slot_uri": "https://w3id.org/NFDI4Chem/MIChIentries",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
+      "slot_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/entries",
       "multivalued": true,
       "alias": "entries",
       "owner": "DatasetCollection",
@@ -444,19 +498,16 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "primary_email",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
-      "slot_uri": "https://w3id.org/NFDI4Chem/MIChIprimary_email",
-      "range": "string",
-      "pattern": "^\\S+@[\\S+\\.]+\\S+",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "Dataset_primary_email",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/primary_email",
+      "description": "The main email address of a person",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
+      "mappings": [
+        "http://schema.org/email"
+      ],
       "is_a": "primary_email",
       "domain": "Dataset",
-      "slot_uri": "https://w3id.org/NFDI4Chem/MIChIprimary_email",
+      "slot_uri": "http://schema.org/email",
       "alias": "primary_email",
       "owner": "Dataset",
       "domain_of": [
@@ -472,9 +523,9 @@
   "classes": [
     {
       "name": "NamedThing",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChINamedThing",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/NamedThing",
       "description": "A generic grouping for any identifiable entity",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
       "mappings": [
         "schema:Thing"
       ],
@@ -489,25 +540,28 @@
     },
     {
       "name": "Dataset",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIDataset",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/Dataset",
       "description": "Represents a Dataset",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
       "is_a": "NamedThing",
       "slots": [
         "id",
         "name",
         "description",
-        "Dataset_primary_email"
+        "Dataset_primary_email",
+        "birth_date",
+        "age_in_years",
+        "vital_status"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/NFDI4Chem/MIChIDataset",
+      "class_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/Dataset",
       "@type": "ClassDefinition"
     },
     {
       "name": "DatasetCollection",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIDatasetCollection",
+      "definition_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/DatasetCollection",
       "description": "A holder for Dataset objects",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
+      "from_schema": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI",
       "slots": [
         "datasetCollection__entries"
       ],
@@ -521,60 +575,22 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://w3id.org/NFDI4Chem/MIChIDatasetCollection",
+      "class_uri": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/DatasetCollection",
       "tree_root": true,
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "Sample",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChISample",
-      "description": "The material entity that is being evaluated.",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
-      "slot_usage": {},
-      "class_uri": "https://w3id.org/NFDI4Chem/MIChISample",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "Molecule",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIMolecule",
-      "description": "A molecular entity",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
-      "slot_usage": {},
-      "class_uri": "https://w3id.org/NFDI4Chem/MIChIMolecule",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ChemicalSubstance",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIChemicalSubstance",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
-      "slot_usage": {},
-      "class_uri": "https://w3id.org/NFDI4Chem/MIChIChemicalSubstance",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "Analysis",
-      "definition_uri": "https://w3id.org/NFDI4Chem/MIChIAnalysis",
-      "description": "The planned process to analyse/assay a sample.",
-      "from_schema": "https://w3id.org/StroemPhi/NFDI4Chem_MIChI",
-      "mappings": [
-        "OBI:0001209"
-      ],
-      "slot_usage": {},
-      "class_uri": "http://purl.obolibrary.org/obo/OBI_0001209",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "nfdi4chem_michi.yaml",
-  "source_file_date": "2024-05-28T11:49:19",
-  "source_file_size": 2016,
-  "generation_date": "2024-05-28T11:49:36",
+  "source_file_date": "2024-05-29T11:10:20",
+  "source_file_size": 2237,
+  "generation_date": "2024-05-29T11:10:55",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/nfdi4chem_michi.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     {
-      "@base": "https://w3id.org/NFDI4Chem/MIChI"
+      "@base": "https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/"
     }
   ]
 }

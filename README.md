@@ -1,10 +1,10 @@
-# NFDI4Chem MIChI
+# NFDI4Chem_MIChI
 
-This is the metadata schema for NFDI4Chem
+This is the LinkML metadata schema prototype for NFDI4Chem
 
 ## Website
 
-[https://StroemPhi.github.io/NFDI4Chem MIChI](https://StroemPhi.github.io/NFDI4Chem MIChI)
+[https://NFDI4Chem.github.io/NFDI4Chem_MIChI](https://NFDI4Chem.github.io/NFDI4Chem_MIChI)
 
 ## Repository Structure
 

@@ -1,9 +1,9 @@
 ---
 id: https://w3id.org/StroemPhi/NFDI4Chem_MIChI
-name: MIChI
-title: MIChI
+name: NFDI4Chem_MIChI
+title: NFDI4Chem_MIChI
 description: |-
-  This is the metadata schema for NFDI4Chem
+  This is the LinkML metadata schema prototype for NFDI4Chem
 license: MIT
 see_also:
   - https://w3id.org/NFDI4Chem/MIChI
@@ -39,9 +39,6 @@ classes:
     is_a: NamedThing
     description: >-
       Represents a Dataset
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
 
   DatasetCollection:
     tree_root: true
@@ -66,13 +63,12 @@ classes:
     class_uri: OBI:0000272
     description: The information that specifies how to execute a planned process, in terms of what steps and actions must be taken and what preconditions must be met
 
-
   # Attributes
   Characteristic:
     description: An attribute/characteristic of an entity (which could be a material entity, information or process)
     slots:
-      - has quantitative value # range: data item with value specification of unit and precision
-      - is output of analysis # range: analysis that determined this characteristic
+      - has_quantitative_value # range: data item with value specification of unit and precision
+      - output_of_analysis # range: analysis that determined this characteristic
 
   # Material entities
   Sample:
@@ -109,10 +105,10 @@ classes:
     class_uri: CHEBI:59999
     description: A MaterialEntity that is composed of multiple Chemical Entities of either the same or different kind
     slots:
-      - has provenance # range: information about the chemical substance that determines where it came from
-      - has chemical entity # range: chemical entity - relation
-      - has space group
-      - IUPAC name
+      - provenance # range: information about the chemical substance that determines where it came from
+      - composed_of_chemical_entity # range: chemical entity - relation
+      - space_group
+      - iupac_name
     examples:
       - a polymer
       - a mixture of ethanol and methanol
@@ -131,14 +127,14 @@ classes:
     class_uri:
     description: A  used within an analysis with a specific function
     slots:
-      - has part # another device
-      - has vendor
-      - has SerialNumber
-      - has ModelNumber # the specific information of what model within a model family e.g. Lattitude 5310 of the Dell Lattitude family
-      - has function # range Function, the main function of the device -> what it can measure
-      - has device setting # range: information that specifies an attribute of the Device
-      - has visual representation # range: some image, schema drawing etc. which depicts the layout of the device
-      - has type # placeholder to remember that we need to be able to specify a specialization/kind of the device, e.g. NMR spectrometer
+      - has_part # another device
+      - has_vendor
+      - has_serial_number
+      - has_model_number # the specific information of what model within a model family e.g. Lattitude 5310 of the Dell Lattitude family
+      - has_function # range Function, the main function of the device -> what it can measure
+      - has_setting # range: information that specifies an attribute of the Device
+      - has_visual_representation # range: some image, schema drawing etc. which depicts the layout of the device
+      - has_type # placeholder to remember that we need to be able to specify a specialization/kind of the device, e.g. NMR spectrometer
 
   DevicePart:
     is_a: Device
@@ -151,8 +147,8 @@ classes:
     class_uri: OBI:0000011
     description: A process that is executed according to some plan or protocoll
     slots:
-      - has input
-      - has output
+      - has_input
+      - has_output
 
   ChemicalReaction:
 
@@ -161,10 +157,10 @@ classes:
     class_uri: OBI:0000070
     description: The planned process to chemically assay a sample in order to determine some characteristic of it.
     slots:
-      - has sample # range: sample being evaluated to determine a characteristic of the sample
-      - has device # range: device used to evaluate the sample
-      - produces dataset # range: Dataset - the information produced about the sample
-      - has type # range: measurement technique - some class from some ontology
+      - has_sample # range: sample being evaluated to determine a characteristic of the sample
+      - has_device # range: device used to evaluate the sample
+      - produces_dataset # range: Dataset - the information produced about the sample
+      - has_type # range: measurement technique - some class from some ontology
     examples:
       - a certain Raman spectroscopy performed to determine the Raman shift of some sample
 
@@ -172,8 +168,8 @@ classes:
     is_a: PlannedProcess
     description: An interpretation of the data output of a ChemicalAssay
     slots:
-      - has status # range: StatusEnum - planned, in progress, done/finished, confirmed, unconfirmed
-      - based on assay output # range: Data - the information produced by some ChemicalAssay
+      - has_status # range: StatusEnum - planned, in progress, done/finished, confirmed, unconfirmed
+      - based_on_assay_output # range: Data - the information produced by some ChemicalAssay
     examples:
       - an assignemt of chemical structures to certain peaks in a spectrum
     todos:
@@ -198,9 +194,28 @@ slots:
     slot_uri: schema:description
     description: A human-readable description for a thing
   has_input:
+  has_output:
   has_sample:
     is_a: has_input
-
+  has_device:
+    is_a: has_input
+  produces_dataset:
+    is_a: has_output
+  has_quantitative_value:
+  has_status:
+  based_on_assay_output:
+  has_type:
+  has_part:
+  has_vendor:
+  has_serial_number:
+  has_model_number:
+  has_function:
+  has_setting:
+  has_visual_representation:
+  provenance:
+  composed_of_chemical_entity:
+  space_group:
+  iupac_name:
 
 enums:
   PersonStatus:

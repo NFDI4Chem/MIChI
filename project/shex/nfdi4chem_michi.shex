@@ -1,5 +1,5 @@
 # metamodel_version: 1.7.0
-BASE <https://w3id.org/NFDI4Chem/MIChI/>
+BASE <https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
@@ -44,53 +44,32 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
-<https://w3id.org/NFDI4Chem/MIChIAnalysis> CLOSED {
-    (  $<https://w3id.org/NFDI4Chem/MIChIAnalysis_tes> rdf:type . * ;
-       rdf:type [ <http://purl.obolibrary.org/obo/OBI_0001209> ] ?
-    )
-}
-
-<https://w3id.org/NFDI4Chem/MIChIChemicalSubstance> CLOSED {
-    (  $<https://w3id.org/NFDI4Chem/MIChIChemicalSubstance_tes> rdf:type . * ;
-       rdf:type [ <https://w3id.org/NFDI4Chem/MIChIChemicalSubstance> ] ?
-    )
-}
-
-<https://w3id.org/NFDI4Chem/MIChIDataset> CLOSED {
-    (  $<https://w3id.org/NFDI4Chem/MIChIDataset_tes> (  &<https://w3id.org/NFDI4Chem/MIChINamedThing_tes> ;
+<Dataset> CLOSED {
+    (  $<Dataset_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
-          <https://w3id.org/NFDI4Chem/MIChIprimary_email> @linkml:String ?
+          schema1:email @linkml:String ? ;
+          schema1:birthDate @linkml:Date ? ;
+          <age_in_years> @linkml:Integer ? ;
+          <vital_status> [ <http://purl.obolibrary.org/obo/PATO_0001421> <http://purl.obolibrary.org/obo/PATO_0001422>
+             <https://w3id.org/NFDI4Chem/NFDI4Chem_MIChI/PersonStatus#UNKNOWN> ] ?
        ) ;
-       rdf:type [ <https://w3id.org/NFDI4Chem/MIChIDataset> ]
+       rdf:type [ <Dataset> ]
     )
 }
 
-<https://w3id.org/NFDI4Chem/MIChIDatasetCollection> CLOSED {
-    (  $<https://w3id.org/NFDI4Chem/MIChIDatasetCollection_tes> <https://w3id.org/NFDI4Chem/MIChIentries>
-       @<https://w3id.org/NFDI4Chem/MIChIDataset> * ;
-       rdf:type [ <https://w3id.org/NFDI4Chem/MIChIDatasetCollection> ] ?
+<DatasetCollection> CLOSED {
+    (  $<DatasetCollection_tes> <entries> @<Dataset> * ;
+       rdf:type [ <DatasetCollection> ] ?
     )
 }
 
-<https://w3id.org/NFDI4Chem/MIChIMolecule> CLOSED {
-    (  $<https://w3id.org/NFDI4Chem/MIChIMolecule_tes> rdf:type . * ;
-       rdf:type [ <https://w3id.org/NFDI4Chem/MIChIMolecule> ] ?
-    )
-}
-
-<https://w3id.org/NFDI4Chem/MIChINamedThing>  (
+<NamedThing>  (
     CLOSED {
-       (  $<https://w3id.org/NFDI4Chem/MIChINamedThing_tes> (  schema1:name @linkml:String ? ;
+       (  $<NamedThing_tes> (  schema1:name @linkml:String ? ;
              schema1:description @linkml:String ?
           ) ;
           rdf:type [ schema1:Thing ]
        )
-    } OR @<https://w3id.org/NFDI4Chem/MIChIDataset>
+    } OR @<Dataset>
 )
-
-<https://w3id.org/NFDI4Chem/MIChISample> CLOSED {
-    (  $<https://w3id.org/NFDI4Chem/MIChISample_tes> rdf:type . * ;
-       rdf:type [ <https://w3id.org/NFDI4Chem/MIChISample> ] ?
-    )
-}
 

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "nfdi4chem_michi"
 version = "0.1.0"
-description = "This is the metadata schema for NFDI4Chem"
+description = "This is the LinkML metadata schema prototype for NFDI4Chem"
 authors = ["Philip Strömert <philip.stroemert@tib.eu>"]
 license = "MIT"
 readme = "README.md"
