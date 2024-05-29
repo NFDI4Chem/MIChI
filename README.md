@@ -4,7 +4,7 @@ This is the LinkML metadata schema prototype for NFDI4Chem
 
 ## Website
 
-[https://NFDI4Chem.github.io/NFDI4Chem_MIChI](https://NFDI4Chem.github.io/NFDI4Chem_MIChI)
+[https://NFDI4Chem.github.io/MIChI](https://NFDI4Chem.github.io/MIChI)
 
 ## Repository Structure
 
