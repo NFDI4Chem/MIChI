@@ -26,18 +26,19 @@ imports:
 
 classes:
 
-  NamedThing:
+  MinimalMetadataMixin:
     description: >-
-      A generic grouping for any identifiable entity
+      A mixin with the minimal required slots of a class in this schema.
+    mixin: true
     slots:
       - id
       - name
       - description
-    class_uri: schema:Thing
 
   # Information
   Dataset:
-    is_a: NamedThing
+    mixins:
+      - NamedThing
     description: >-
       Represents a Dataset
 
@@ -64,8 +65,10 @@ classes:
       - output_of_analysis # range: analysis that determined this characteristic
 
   # Material entities
+    mixins:
+      - NamedThing
   Sample:
-    is_a: NamedThing
+    is_a: MaterialEntity
     description: The material entity that is being evaluated to assay its attributes/characteristic.
     slots:
       - output_of_sampling_process # rang: sampling process - which is the process that determines where it came from
@@ -113,7 +116,7 @@ classes:
 
   # devices
   Device:
-    is_a: NamedThing
+    is_a: MaterialEntity
     description: A  used within an analysis with a specific function
     slots:
       - has_part # another device
@@ -133,6 +136,8 @@ classes:
   # Processes
 
   PlannedProcess:
+    mixins:
+      - NamedThing
     class_uri: OBI:0000011
     description: A process that is executed according to some plan or protocol
     slots:
@@ -169,6 +174,9 @@ classes:
     is_a: PlannedProcess
     description: The process in which a sample is being generated or prepared for further analysis
 
+  ChemicalReaction:
+    mixins:
+      - NamedThing
 # Slots
 slots:
   id:
