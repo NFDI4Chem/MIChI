@@ -67,6 +67,7 @@ classes:
 
   # Attributes
   Characteristic:
+    class_uri: BFO:0000020
     description: An attribute/characteristic of an entity (which could be a material entity, information or process)
     slots:
       - has_quantitative_value # range: data item with value specification of unit and precision
