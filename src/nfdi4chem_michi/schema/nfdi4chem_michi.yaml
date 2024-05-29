@@ -104,8 +104,6 @@ classes:
       - composed_of_chemical_entity # range: chemical entity - relation
       - space_group
       - iupac_name
-    examples:
-
     comments:
       - "CHEBI definition: A chemical substance is a portion of matter of constant composition, composed of molecular
       entities of the same type or of different types."
@@ -130,10 +128,7 @@ classes:
   DevicePart:
     is_a: Device
 
-
-
   # Processes
-
   PlannedProcess:
     mixins:
       - MinimalMetadataMixin
@@ -165,7 +160,6 @@ classes:
       - "Examples: an assignment of chemical structures to certain peaks in a spectrum"
     todos:
       - think about or the other possible slots for different kinds of chemical analyses
-
 
   SamplePreparation:
     is_a: PlannedProcess
