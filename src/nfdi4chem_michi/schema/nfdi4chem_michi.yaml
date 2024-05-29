@@ -65,8 +65,14 @@ classes:
       - output_of_analysis # range: analysis that determined this characteristic
 
   # Material entities
+  MaterialEntity:
+    class_uri: BFO:0000040
     mixins:
       - NamedThing
+    description: "Material entities are three-dimensional entities (entities extended in three spatial dimensions), 
+    as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended 
+    also along the dimension of time)"
+
   Sample:
     is_a: MaterialEntity
     description: The material entity that is being evaluated to assay its attributes/characteristic.
@@ -77,13 +83,6 @@ classes:
       - "Review with regard to the ISA model and the controlled/independent & dependent variable part"
 
   # chemical entities
-  MaterialEntity:
-    class_uri: BFO:0000040
-    is_a: NamedThing
-    description: "Material entities are three-dimensional entities (entities extended in three spatial dimensions), 
-    as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended 
-    also along the dimension of time)"
-
   ChemicalEntity:
     is_a: MaterialEntity
     class_uri: CHEBI:23367
