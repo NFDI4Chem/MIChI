@@ -324,6 +324,7 @@
 
 
 <h1 id="slot-has_output">Slot: has_output</h1>
+<p><em>A property to provide the output of a proces.</em></p>
 <p>URI: <a href="https://w3id.org/NFDI4Chem/MIChIhas_output">michi:has_output</a></p>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
@@ -343,13 +344,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ChemicalAnalysis/">ChemicalAnalysis</a></td>
-<td>An interpretation of the data output of a ChemicalAssay</td>
+<td><a href="../ChemicalAssay/">ChemicalAssay</a></td>
+<td>The planned process to chemically assay a sample in order to determine some c...</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ChemicalAssay/">ChemicalAssay</a></td>
-<td>The planned process to chemically assay a sample in order to determine some c...</td>
+<td><a href="../ChemicalAnalysis/">ChemicalAnalysis</a></td>
+<td>An interpretation of the data output of a ChemicalAssay</td>
 <td>no</td>
 </tr>
 <tr>
@@ -377,8 +378,10 @@
 <details>
 
 <pre><code class="language-yaml">name: has_output
+description: A property to provide the output of a proces.
 from_schema: https://w3id.org/NFDI4Chem/MIChI
 rank: 1000
+domain: PlannedProcess
 alias: has_output
 domain_of:
 - PlannedProcess

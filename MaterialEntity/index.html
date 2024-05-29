@@ -205,14 +205,18 @@
 <div class="mermaid"> classDiagram
     class MaterialEntity
     click MaterialEntity href "../MaterialEntity"
-      NamedThing &lt;|-- MaterialEntity
-        click NamedThing href "../NamedThing"
+      MinimalMetadataMixin &lt;|-- MaterialEntity
+        click MinimalMetadataMixin href "../MinimalMetadataMixin"
 
 
+      MaterialEntity &lt;|-- Sample
+        click Sample href "../Sample"
       MaterialEntity &lt;|-- ChemicalEntity
         click ChemicalEntity href "../ChemicalEntity"
       MaterialEntity &lt;|-- ChemicalSubstance
         click ChemicalSubstance href "../ChemicalSubstance"
+      MaterialEntity &lt;|-- Device
+        click Device href "../Device"
 
 
       MaterialEntity : description
@@ -225,12 +229,11 @@
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedThing/">NamedThing</a><ul>
-<li><strong>MaterialEntity</strong><ul>
+<li><strong>MaterialEntity</strong> [ <a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a>]<ul>
+<li><a href="../Sample/">Sample</a></li>
 <li><a href="../ChemicalEntity/">ChemicalEntity</a></li>
 <li><a href="../ChemicalSubstance/">ChemicalSubstance</a></li>
-</ul>
-</li>
+<li><a href="../Device/">Device</a></li>
 </ul>
 </li>
 </ul>
@@ -248,20 +251,20 @@
 <tr>
 <td><a href="../id/">id</a></td>
 <td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>A unique identifier for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the unique identifier for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable name for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the human-readable name for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable description for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the human-readable description for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 </tbody>
 </table>
@@ -299,7 +302,8 @@ description: Material entities are three-dimensional entities (entities extended
   which are four-dimensional entities (entities extended also along the dimension
   of time)
 from_schema: https://w3id.org/NFDI4Chem/MIChI
-is_a: NamedThing
+mixins:
+- MinimalMetadataMixin
 class_uri: BFO:0000040
 
 </code></pre>
@@ -312,42 +316,43 @@ description: Material entities are three-dimensional entities (entities extended
   which are four-dimensional entities (entities extended also along the dimension
   of time)
 from_schema: https://w3id.org/NFDI4Chem/MIChI
-is_a: NamedThing
+mixins:
+- MinimalMetadataMixin
 attributes:
   id:
     name: id
-    description: A unique identifier for a thing
+    description: A property to provide the unique identifier for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:identifier
+    slot_uri: dct:identifier
     identifier: true
     alias: id
     owner: MaterialEntity
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: uriorcurie
     required: true
   name:
     name: name
-    description: A human-readable name for a thing
+    description: A property to provide the human-readable name for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:name
+    slot_uri: dct:title
     alias: name
     owner: MaterialEntity
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: string
   description:
     name: description
-    description: A human-readable description for a thing
+    description: A property to provide the human-readable description for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:description
+    slot_uri: dct:description
     alias: description
     owner: MaterialEntity
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: string
 class_uri: BFO:0000040
 

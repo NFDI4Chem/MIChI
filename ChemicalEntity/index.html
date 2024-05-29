@@ -217,17 +217,16 @@
 
       ChemicalEntity : id
 
+      ChemicalEntity : iupac_name
+
       ChemicalEntity : name
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedThing/">NamedThing</a><ul>
-<li><a href="../MaterialEntity/">MaterialEntity</a><ul>
+<li><a href="../MaterialEntity/">MaterialEntity</a> [ <a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a>]<ul>
 <li><strong>ChemicalEntity</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -243,22 +242,28 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../iupac_name/">iupac_name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A property to provide the IUPAC name of a Chemical Substance or Chemical Enti...</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../id/">id</a></td>
 <td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>A unique identifier for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the unique identifier for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable name for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the human-readable name for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable description for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the human-readable description for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 </tbody>
 </table>
@@ -309,6 +314,8 @@ comments:
   are not physical existing --&gt; write/ask in the OBO or BFO discuss list?
 from_schema: https://w3id.org/NFDI4Chem/MIChI
 is_a: MaterialEntity
+slots:
+- iupac_name
 class_uri: CHEBI:23367
 
 </code></pre>
@@ -330,40 +337,52 @@ comments:
 from_schema: https://w3id.org/NFDI4Chem/MIChI
 is_a: MaterialEntity
 attributes:
-  id:
-    name: id
-    description: A unique identifier for a thing
+  iupac_name:
+    name: iupac_name
+    description: A property to provide the IUPAC name of a Chemical Substance or Chemical
+      Entity.
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:identifier
+    alias: iupac_name
+    owner: ChemicalEntity
+    domain_of:
+    - ChemicalEntity
+    - ChemicalSubstance
+    range: string
+  id:
+    name: id
+    description: A property to provide the unique identifier for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:identifier
     identifier: true
     alias: id
     owner: ChemicalEntity
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: uriorcurie
     required: true
   name:
     name: name
-    description: A human-readable name for a thing
+    description: A property to provide the human-readable name for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:name
+    slot_uri: dct:title
     alias: name
     owner: ChemicalEntity
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: string
   description:
     name: description
-    description: A human-readable description for a thing
+    description: A property to provide the human-readable description for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:description
+    slot_uri: dct:description
     alias: description
     owner: ChemicalEntity
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: string
 class_uri: CHEBI:23367
 

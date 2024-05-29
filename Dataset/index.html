@@ -157,6 +157,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#comments">
+    Comments
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -210,8 +215,8 @@
 <div class="mermaid"> classDiagram
     class Dataset
     click Dataset href "../Dataset"
-      NamedThing &lt;|-- Dataset
-        click NamedThing href "../NamedThing"
+      MinimalMetadataMixin &lt;|-- Dataset
+        click MinimalMetadataMixin href "../MinimalMetadataMixin"
 
       Dataset : description
 
@@ -223,10 +228,7 @@
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedThing/">NamedThing</a><ul>
-<li><strong>Dataset</strong></li>
-</ul>
-</li>
+<li><strong>Dataset</strong> [ <a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a>]</li>
 </ul>
 <h2 id="slots">Slots</h2>
 <table>
@@ -242,20 +244,20 @@
 <tr>
 <td><a href="../id/">id</a></td>
 <td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>A unique identifier for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the unique identifier for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable name for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the human-readable name for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable description for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the human-readable description for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 </tbody>
 </table>
@@ -278,6 +280,10 @@
 </tr>
 </tbody>
 </table>
+<h2 id="comments">Comments</h2>
+<ul>
+<li>PS: wasn't discussed in the Halle Metadatathon</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -308,8 +314,11 @@
 <details>
 <pre><code class="language-yaml">name: Dataset
 description: Represents a Dataset
+comments:
+- 'PS: wasn''t discussed in the Halle Metadatathon'
 from_schema: https://w3id.org/NFDI4Chem/MIChI
-is_a: NamedThing
+mixins:
+- MinimalMetadataMixin
 
 </code></pre>
 </details>
@@ -317,43 +326,46 @@ is_a: NamedThing
 <details>
 <pre><code class="language-yaml">name: Dataset
 description: Represents a Dataset
+comments:
+- 'PS: wasn''t discussed in the Halle Metadatathon'
 from_schema: https://w3id.org/NFDI4Chem/MIChI
-is_a: NamedThing
+mixins:
+- MinimalMetadataMixin
 attributes:
   id:
     name: id
-    description: A unique identifier for a thing
+    description: A property to provide the unique identifier for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:identifier
+    slot_uri: dct:identifier
     identifier: true
     alias: id
     owner: Dataset
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: uriorcurie
     required: true
   name:
     name: name
-    description: A human-readable name for a thing
+    description: A property to provide the human-readable name for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:name
+    slot_uri: dct:title
     alias: name
     owner: Dataset
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: string
   description:
     name: description
-    description: A human-readable description for a thing
+    description: A property to provide the human-readable description for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:description
+    slot_uri: dct:description
     alias: description
     owner: Dataset
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: string
 
 </code></pre>

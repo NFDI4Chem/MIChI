@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+    Usages
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#comments">
     Comments
   </a>
@@ -220,6 +225,8 @@
 
       ChemicalAnalysis : based_on_assay_output
 
+      ChemicalAnalysis : description
+
       ChemicalAnalysis : has_input
 
       ChemicalAnalysis : has_output
@@ -227,10 +234,21 @@
       ChemicalAnalysis : has_status
 
 
+
+
+    ChemicalAnalysis --&gt; "0..1" ChemicalAnalysisStatus : has_status
+    click ChemicalAnalysisStatus href "../ChemicalAnalysisStatus"
+
+
+      ChemicalAnalysis : id
+
+      ChemicalAnalysis : name
+
+
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../PlannedProcess/">PlannedProcess</a><ul>
+<li><a href="../PlannedProcess/">PlannedProcess</a> [ <a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a>]<ul>
 <li><strong>ChemicalAnalysis</strong></li>
 </ul>
 </li>
@@ -248,27 +266,70 @@
 <tbody>
 <tr>
 <td><a href="../has_status/">has_status</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>0..1 <br/> <a href="../ChemicalAnalysisStatus/">ChemicalAnalysisStatus</a></td>
+<td>A property to provide the status of a ChemicalAnalysis</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../based_on_assay_output/">based_on_assay_output</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>The status of a ChemicalAnalysis</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../has_input/">has_input</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide the input of a process</td>
 <td><a href="../PlannedProcess/">PlannedProcess</a></td>
 </tr>
 <tr>
 <td><a href="../has_output/">has_output</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide the output of a proces</td>
 <td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A property to provide the unique identifier for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A property to provide the human-readable name for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A property to provide the human-readable description for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./">ChemicalAnalysis</a></td>
+<td><a href="../has_status/">has_status</a></td>
+<td>domain</td>
+<td><a href="./">ChemicalAnalysis</a></td>
+</tr>
+<tr>
+<td><a href="./">ChemicalAnalysis</a></td>
+<td><a href="../based_on_assay_output/">based_on_assay_output</a></td>
+<td>domain</td>
+<td><a href="./">ChemicalAnalysis</a></td>
 </tr>
 </tbody>
 </table>
@@ -335,17 +396,21 @@ is_a: PlannedProcess
 attributes:
   has_status:
     name: has_status
+    description: A property to provide the status of a ChemicalAnalysis
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
+    domain: ChemicalAnalysis
     alias: has_status
     owner: ChemicalAnalysis
     domain_of:
     - ChemicalAnalysis
-    range: string
+    range: ChemicalAnalysisStatus
   based_on_assay_output:
     name: based_on_assay_output
+    description: The status of a ChemicalAnalysis
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
+    domain: ChemicalAnalysis
     alias: based_on_assay_output
     owner: ChemicalAnalysis
     domain_of:
@@ -353,8 +418,10 @@ attributes:
     range: string
   has_input:
     name: has_input
+    description: A property to provide the input of a process.
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
+    domain: PlannedProcess
     alias: has_input
     owner: ChemicalAnalysis
     domain_of:
@@ -362,12 +429,49 @@ attributes:
     range: string
   has_output:
     name: has_output
+    description: A property to provide the output of a proces.
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
+    domain: PlannedProcess
     alias: has_output
     owner: ChemicalAnalysis
     domain_of:
     - PlannedProcess
+    range: string
+  id:
+    name: id
+    description: A property to provide the unique identifier for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:identifier
+    identifier: true
+    alias: id
+    owner: ChemicalAnalysis
+    domain_of:
+    - MinimalMetadataMixin
+    range: uriorcurie
+    required: true
+  name:
+    name: name
+    description: A property to provide the human-readable name for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:title
+    alias: name
+    owner: ChemicalAnalysis
+    domain_of:
+    - MinimalMetadataMixin
+    range: string
+  description:
+    name: description
+    description: A property to provide the human-readable description for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:description
+    alias: description
+    owner: ChemicalAnalysis
+    domain_of:
+    - MinimalMetadataMixin
     range: string
 
 </code></pre>

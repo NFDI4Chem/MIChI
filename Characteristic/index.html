@@ -147,6 +147,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+    Usages
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -196,7 +201,7 @@
 </a>
 <h1 id="class-characteristic">Class: Characteristic</h1>
 <p><em>An attribute/characteristic of an entity (which could be a material entity, information or process)</em></p>
-<p>URI: <a href="https://w3id.org/NFDI4Chem/MIChICharacteristic">michi:Characteristic</a></p>
+<p>URI: <a href="http://purl.obolibrary.org/obo/BFO_0000020">BFO:0000020</a></p>
 <div class="mermaid"> classDiagram
     class Characteristic
     click Characteristic href "../Characteristic"
@@ -221,14 +226,45 @@
 <tr>
 <td><a href="../has_quantitative_value/">has_quantitative_value</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide the qualitative value of a characteristic</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../output_of_analysis/">output_of_analysis</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide the chemical analysis or assay that determined the char...</td>
 <td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./">Characteristic</a></td>
+<td><a href="../has_quantitative_value/">has_quantitative_value</a></td>
+<td>domain</td>
+<td><a href="./">Characteristic</a></td>
+</tr>
+<tr>
+<td><a href="./">Characteristic</a></td>
+<td><a href="../output_of_analysis/">output_of_analysis</a></td>
+<td>domain</td>
+<td><a href="./">Characteristic</a></td>
+</tr>
+<tr>
+<td><a href="../Sample/">Sample</a></td>
+<td><a href="../has_characteristic/">has_characteristic</a></td>
+<td>range</td>
+<td><a href="./">Characteristic</a></td>
 </tr>
 </tbody>
 </table>
@@ -248,7 +284,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>michi:Characteristic</td>
+<td>BFO:0000020</td>
 </tr>
 <tr>
 <td>native</td>
@@ -267,6 +303,7 @@ from_schema: https://w3id.org/NFDI4Chem/MIChI
 slots:
 - has_quantitative_value
 - output_of_analysis
+class_uri: BFO:0000020
 
 </code></pre>
 </details>
@@ -279,8 +316,10 @@ from_schema: https://w3id.org/NFDI4Chem/MIChI
 attributes:
   has_quantitative_value:
     name: has_quantitative_value
+    description: A property to provide the qualitative value of a characteristic
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
+    domain: Characteristic
     alias: has_quantitative_value
     owner: Characteristic
     domain_of:
@@ -288,13 +327,17 @@ attributes:
     range: string
   output_of_analysis:
     name: output_of_analysis
+    description: A property to provide the chemical analysis or assay that determined
+      the characteristic
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
+    domain: Characteristic
     alias: output_of_analysis
     owner: Characteristic
     domain_of:
     - Characteristic
     range: string
+class_uri: BFO:0000020
 
 </code></pre>
 </details>

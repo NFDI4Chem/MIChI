@@ -317,6 +317,7 @@
 
 
 <h1 id="slot-iupac_name">Slot: iupac_name</h1>
+<p><em>A property to provide the IUPAC name of a Chemical Substance or Chemical Entity.</em></p>
 <p>URI: <a href="https://w3id.org/NFDI4Chem/MIChIiupac_name">michi:iupac_name</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -335,6 +336,11 @@
 <td>A MaterialEntity that is composed of multiple Chemical Entities of either the...</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="../ChemicalEntity/">ChemicalEntity</a></td>
+<td>Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, ...</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
@@ -350,10 +356,13 @@
 <details>
 
 <pre><code class="language-yaml">name: iupac_name
+description: A property to provide the IUPAC name of a Chemical Substance or Chemical
+  Entity.
 from_schema: https://w3id.org/NFDI4Chem/MIChI
 rank: 1000
 alias: iupac_name
 domain_of:
+- ChemicalEntity
 - ChemicalSubstance
 range: string
 

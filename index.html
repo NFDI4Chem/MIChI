@@ -398,27 +398,27 @@
 </tr>
 <tr>
 <td><a href="ChemicalReaction/">ChemicalReaction</a></td>
-<td>None</td>
+<td>A process between multiple chemical entities of a different kind.</td>
 </tr>
 <tr>
-<td><a href="Data/">Data</a></td>
-<td>Information about some entity produced by a planned process.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RawData/">RawData</a></td>
-<td>None</td>
+<td><a href="Dataset/">Dataset</a></td>
+<td>Represents a Dataset</td>
 </tr>
 <tr>
 <td><a href="DatasetCollection/">DatasetCollection</a></td>
 <td>A holder for Dataset objects</td>
 </tr>
 <tr>
-<td><a href="NamedThing/">NamedThing</a></td>
-<td>A generic grouping for any identifiable entity</td>
+<td><a href="MaterialEntity/">MaterialEntity</a></td>
+<td>Material entities are three-dimensional entities (entities extended in three spatial dimensions), as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended also along the dimension of time)</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Dataset/">Dataset</a></td>
-<td>Represents a Dataset</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ChemicalEntity/">ChemicalEntity</a></td>
+<td>Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ChemicalSubstance/">ChemicalSubstance</a></td>
+<td>A MaterialEntity that is composed of multiple Chemical Entities of either the same or different kind</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Device/">Device</a></td>
@@ -426,23 +426,15 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DevicePart/">DevicePart</a></td>
-<td>None</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MaterialEntity/">MaterialEntity</a></td>
-<td>Material entities are three-dimensional entities (entities extended in three spatial dimensions), as contrasted with the processes in which they participate, which are four-dimensional entities (entities extended also along the dimension of time)</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ChemicalEntity/">ChemicalEntity</a></td>
-<td>Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ChemicalSubstance/">ChemicalSubstance</a></td>
-<td>A MaterialEntity that is composed of multiple Chemical Entities of either the same or different kind</td>
+<td>A device which function is to be a part of another device that is used within a chemical assay.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Sample/">Sample</a></td>
 <td>The material entity that is being evaluated to assay its attributes/characteristic.</td>
+</tr>
+<tr>
+<td><a href="MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
+<td>A mixin with the minimal required slots of a class in this schema.</td>
 </tr>
 <tr>
 <td><a href="PlannedProcess/">PlannedProcess</a></td>
@@ -477,15 +469,15 @@
 <tbody>
 <tr>
 <td><a href="based_on_assay_output/">based_on_assay_output</a></td>
-<td></td>
+<td>The status of a ChemicalAnalysis</td>
 </tr>
 <tr>
 <td><a href="composed_of_chemical_entity/">composed_of_chemical_entity</a></td>
-<td></td>
+<td>A property to provide the chemical entities of which a chemical substance is ...</td>
 </tr>
 <tr>
 <td><a href="description/">description</a></td>
-<td>A human-readable description for a thing</td>
+<td>A property to provide the human-readable description for a thing</td>
 </tr>
 <tr>
 <td><a href="entries/">entries</a></td>
@@ -493,95 +485,95 @@
 </tr>
 <tr>
 <td><a href="has_characteristic/">has_characteristic</a></td>
-<td></td>
+<td>A property to provide a Characteristic of a Material Entity, such as a Sample...</td>
 </tr>
 <tr>
 <td><a href="has_device/">has_device</a></td>
-<td></td>
+<td>A property to provide the device being used in a ChemicalAssay</td>
 </tr>
 <tr>
 <td><a href="has_function/">has_function</a></td>
-<td></td>
+<td>A property to provide the specific function of a device</td>
 </tr>
 <tr>
 <td><a href="has_input/">has_input</a></td>
-<td></td>
+<td>A property to provide the input of a process</td>
+</tr>
+<tr>
+<td><a href="has_manufacturer/">has_manufacturer</a></td>
+<td>A property to provide the vendor of a device</td>
 </tr>
 <tr>
 <td><a href="has_model_number/">has_model_number</a></td>
-<td></td>
+<td>A property to provide the model number of a device</td>
 </tr>
 <tr>
 <td><a href="has_output/">has_output</a></td>
-<td></td>
+<td>A property to provide the output of a proces</td>
 </tr>
 <tr>
 <td><a href="has_part/">has_part</a></td>
-<td></td>
+<td>A property to provide the part of a device</td>
 </tr>
 <tr>
 <td><a href="has_quantitative_value/">has_quantitative_value</a></td>
-<td></td>
+<td>A property to provide the qualitative value of a characteristic</td>
 </tr>
 <tr>
 <td><a href="has_sample/">has_sample</a></td>
-<td></td>
+<td>A property to provide the sample being evaluated in a ChemicalAssay</td>
 </tr>
 <tr>
 <td><a href="has_serial_number/">has_serial_number</a></td>
-<td></td>
+<td>A property to provide the serial number of a device</td>
 </tr>
 <tr>
 <td><a href="has_setting/">has_setting</a></td>
-<td></td>
+<td>A property to provide a specific setting of a device</td>
 </tr>
 <tr>
 <td><a href="has_status/">has_status</a></td>
-<td></td>
+<td>A property to provide the status of a ChemicalAnalysis</td>
 </tr>
 <tr>
 <td><a href="has_type/">has_type</a></td>
 <td>A property to provide the specific type of the class it is used on</td>
 </tr>
 <tr>
-<td><a href="has_vendor/">has_vendor</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="has_visual_representation/">has_visual_representation</a></td>
-<td></td>
+<td>A property to provide a visualization of a device, such as an image, scetch o...</td>
 </tr>
 <tr>
 <td><a href="id/">id</a></td>
-<td>A unique identifier for a thing</td>
+<td>A property to provide the unique identifier for a thing</td>
 </tr>
 <tr>
 <td><a href="iupac_name/">iupac_name</a></td>
-<td></td>
+<td>A property to provide the IUPAC name of a Chemical Substance or Chemical Enti...</td>
 </tr>
 <tr>
 <td><a href="name/">name</a></td>
-<td>A human-readable name for a thing</td>
+<td>A property to provide the human-readable name for a thing</td>
 </tr>
 <tr>
 <td><a href="output_of_analysis/">output_of_analysis</a></td>
-<td></td>
+<td>A property to provide the chemical analysis or assay that determined the char...</td>
 </tr>
 <tr>
 <td><a href="output_of_sampling_process/">output_of_sampling_process</a></td>
-<td></td>
+<td>A property to link a sample to its creation process</td>
 </tr>
 <tr>
 <td><a href="produces_dataset/">produces_dataset</a></td>
-<td></td>
+<td>A property to provide the dataset being produced by a ChemicalAnalysis or Che...</td>
 </tr>
 <tr>
 <td><a href="provenance/">provenance</a></td>
-<td></td>
+<td>A property to provide a specific setting of a device</td>
 </tr>
 <tr>
 <td><a href="space_group/">space_group</a></td>
-<td></td>
+<td>A property to provide the space group of a Chemical Substance</td>
 </tr>
 </tbody>
 </table>
@@ -595,7 +587,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="PersonStatus/">PersonStatus</a></td>
+<td><a href="ChemicalAnalysisStatus/">ChemicalAnalysisStatus</a></td>
 <td></td>
 </tr>
 </tbody>

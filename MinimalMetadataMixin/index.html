@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://NFDI4Chem.github.io/NFDI4Chem_MIChI/Data/" rel="canonical"/>
+<link href="https://NFDI4Chem.github.io/NFDI4Chem_MIChI/MinimalMetadataMixin/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: Data - NFDI4Chem_MIChI</title>
+<title>Class: MinimalMetadataMixin - NFDI4Chem_MIChI</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-data">
+<a class="md-skip" href="#class-minimalmetadatamixin">
           Skip to content
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: Data
+              Class: MinimalMetadataMixin
             
           </span>
 </div>
@@ -142,18 +142,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#inheritance">
-    Inheritance
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#slots">
     Slots
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#todos">
-    TODOs
+<a class="md-nav__link" href="#mixin-usage">
+    Mixin Usage
   </a>
 </li>
 <li class="md-nav__item">
@@ -201,27 +196,33 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/NFDI4Chem/NFDI4Chem_MIChI/edit/master/docs/Data.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/NFDI4Chem/NFDI4Chem_MIChI/edit/master/docs/MinimalMetadataMixin.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="class-data">Class: Data</h1>
-<p><em>Information about some entity produced by a planned process.</em></p>
-<p>URI: <a href="https://w3id.org/NFDI4Chem/MIChIData">michi:Data</a></p>
+<h1 id="class-minimalmetadatamixin">Class: MinimalMetadataMixin</h1>
+<p><em>A mixin with the minimal required slots of a class in this schema.</em></p>
+<p>URI: <a href="https://w3id.org/NFDI4Chem/MIChIMinimalMetadataMixin">michi:MinimalMetadataMixin</a></p>
 <div class="mermaid"> classDiagram
-    class Data
-    click Data href "../Data"
-      Data &lt;|-- RawData
-        click RawData href "../RawData"
+    class MinimalMetadataMixin
+    click MinimalMetadataMixin href "../MinimalMetadataMixin"
+      MinimalMetadataMixin &lt;|-- Dataset
+        click Dataset href "../Dataset"
+      MinimalMetadataMixin &lt;|-- MaterialEntity
+        click MaterialEntity href "../MaterialEntity"
+      MinimalMetadataMixin &lt;|-- PlannedProcess
+        click PlannedProcess href "../PlannedProcess"
+      MinimalMetadataMixin &lt;|-- ChemicalReaction
+        click ChemicalReaction href "../ChemicalReaction"
+
+      MinimalMetadataMixin : description
+
+      MinimalMetadataMixin : id
+
+      MinimalMetadataMixin : name
 
 
 </div>
-<h2 id="inheritance">Inheritance</h2>
-<ul>
-<li><strong>Data</strong><ul>
-<li><a href="../RawData/">RawData</a></li>
-</ul>
-</li>
-</ul>
+<!-- no inheritance hierarchy -->
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
@@ -234,17 +235,52 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><a href="../id/">id</a></td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A property to provide the unique identifier for a thing</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A property to provide the human-readable name for a thing</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A property to provide the human-readable description for a thing</td>
+<td>direct</td>
 </tr>
 </tbody>
 </table>
-<h2 id="todos">TODOs</h2>
-<ul>
-<li>check if this is really needed or if we are allways talking about a dataset here</li>
-</ul>
+<h2 id="mixin-usage">Mixin Usage</h2>
+<table>
+<thead>
+<tr>
+<th>mixed into</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Dataset/">Dataset</a></td>
+<td>Represents a Dataset</td>
+</tr>
+<tr>
+<td><a href="../MaterialEntity/">MaterialEntity</a></td>
+<td>Material entities are three-dimensional entities (entities extended in three ...</td>
+</tr>
+<tr>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+<td>A process that is executed according to some plan or protocol</td>
+</tr>
+<tr>
+<td><a href="../ChemicalReaction/">ChemicalReaction</a></td>
+<td>A process between multiple chemical entities of a different kind</td>
+</tr>
+</tbody>
+</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -261,11 +297,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>michi:Data</td>
+<td>michi:MinimalMetadataMixin</td>
 </tr>
 <tr>
 <td>native</td>
-<td>michi:Data</td>
+<td>michi:MinimalMetadataMixin</td>
 </tr>
 </tbody>
 </table>
@@ -273,21 +309,58 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: Data
-description: Information about some entity produced by a planned process.
-todos:
-- check if this is really needed or if we are allways talking about a dataset here
+<pre><code class="language-yaml">name: MinimalMetadataMixin
+description: A mixin with the minimal required slots of a class in this schema.
 from_schema: https://w3id.org/NFDI4Chem/MIChI
+mixin: true
+slots:
+- id
+- name
+- description
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: Data
-description: Information about some entity produced by a planned process.
-todos:
-- check if this is really needed or if we are allways talking about a dataset here
+<pre><code class="language-yaml">name: MinimalMetadataMixin
+description: A mixin with the minimal required slots of a class in this schema.
 from_schema: https://w3id.org/NFDI4Chem/MIChI
+mixin: true
+attributes:
+  id:
+    name: id
+    description: A property to provide the unique identifier for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:identifier
+    identifier: true
+    alias: id
+    owner: MinimalMetadataMixin
+    domain_of:
+    - MinimalMetadataMixin
+    range: uriorcurie
+  name:
+    name: name
+    description: A property to provide the human-readable name for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:title
+    alias: name
+    owner: MinimalMetadataMixin
+    domain_of:
+    - MinimalMetadataMixin
+    range: string
+  description:
+    name: description
+    description: A property to provide the human-readable description for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:description
+    alias: description
+    owner: MinimalMetadataMixin
+    domain_of:
+    - MinimalMetadataMixin
+    range: string
 
 </code></pre>
 </details>

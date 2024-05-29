@@ -142,8 +142,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#inheritance">
+    Inheritance
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#slots">
     Slots
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#todos">
+    TODOs
   </a>
 </li>
 <li class="md-nav__item">
@@ -195,13 +205,26 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-chemicalreaction">Class: ChemicalReaction</h1>
+<p><em>A process between multiple chemical entities of a different kind.</em></p>
 <p>URI: <a href="https://w3id.org/NFDI4Chem/MIChIChemicalReaction">michi:ChemicalReaction</a></p>
 <div class="mermaid"> classDiagram
     class ChemicalReaction
     click ChemicalReaction href "../ChemicalReaction"
+      MinimalMetadataMixin &lt;|-- ChemicalReaction
+        click MinimalMetadataMixin href "../MinimalMetadataMixin"
+
+      ChemicalReaction : description
+
+      ChemicalReaction : id
+
+      ChemicalReaction : name
+
 
 </div>
-<!-- no inheritance hierarchy -->
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><strong>ChemicalReaction</strong> [ <a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a>]</li>
+</ul>
 <h2 id="slots">Slots</h2>
 <table>
 <thead>
@@ -214,13 +237,29 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><a href="../id/">id</a></td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A property to provide the unique identifier for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A property to provide the human-readable name for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A property to provide the human-readable description for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="todos">TODOs</h2>
+<ul>
+<li>improve description</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -250,14 +289,60 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ChemicalReaction
+description: A process between multiple chemical entities of a different kind.
+todos:
+- improve description
 from_schema: https://w3id.org/NFDI4Chem/MIChI
+mixins:
+- MinimalMetadataMixin
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ChemicalReaction
+description: A process between multiple chemical entities of a different kind.
+todos:
+- improve description
 from_schema: https://w3id.org/NFDI4Chem/MIChI
+mixins:
+- MinimalMetadataMixin
+attributes:
+  id:
+    name: id
+    description: A property to provide the unique identifier for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:identifier
+    identifier: true
+    alias: id
+    owner: ChemicalReaction
+    domain_of:
+    - MinimalMetadataMixin
+    range: uriorcurie
+    required: true
+  name:
+    name: name
+    description: A property to provide the human-readable name for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:title
+    alias: name
+    owner: ChemicalReaction
+    domain_of:
+    - MinimalMetadataMixin
+    range: string
+  description:
+    name: description
+    description: A property to provide the human-readable description for a thing
+    from_schema: https://w3id.org/NFDI4Chem/MIChI
+    rank: 1000
+    slot_uri: dct:description
+    alias: description
+    owner: ChemicalReaction
+    domain_of:
+    - MinimalMetadataMixin
+    range: string
 
 </code></pre>
 </details>

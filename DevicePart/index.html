@@ -200,6 +200,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-devicepart">Class: DevicePart</h1>
+<p><em>A device which function is to be a part of another device that is used within a chemical assay.</em></p>
 <p>URI: <a href="https://w3id.org/NFDI4Chem/MIChIDevicePart">michi:DevicePart</a></p>
 <div class="mermaid"> classDiagram
     class DevicePart
@@ -211,6 +212,8 @@
 
       DevicePart : has_function
 
+      DevicePart : has_manufacturer
+
       DevicePart : has_model_number
 
       DevicePart : has_part
@@ -220,8 +223,6 @@
       DevicePart : has_setting
 
       DevicePart : has_type
-
-      DevicePart : has_vendor
 
       DevicePart : has_visual_representation
 
@@ -233,7 +234,7 @@
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedThing/">NamedThing</a><ul>
+<li><a href="../MaterialEntity/">MaterialEntity</a> [ <a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a>]<ul>
 <li><a href="../Device/">Device</a><ul>
 <li><strong>DevicePart</strong></li>
 </ul>
@@ -255,43 +256,43 @@
 <tr>
 <td><a href="../has_part/">has_part</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide the part of a device</td>
 <td><a href="../Device/">Device</a></td>
 </tr>
 <tr>
-<td><a href="../has_vendor/">has_vendor</a></td>
+<td><a href="../has_manufacturer/">has_manufacturer</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide the vendor of a device</td>
 <td><a href="../Device/">Device</a></td>
 </tr>
 <tr>
 <td><a href="../has_serial_number/">has_serial_number</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide the serial number of a device</td>
 <td><a href="../Device/">Device</a></td>
 </tr>
 <tr>
 <td><a href="../has_model_number/">has_model_number</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide the model number of a device</td>
 <td><a href="../Device/">Device</a></td>
 </tr>
 <tr>
 <td><a href="../has_function/">has_function</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide the specific function of a device</td>
 <td><a href="../Device/">Device</a></td>
 </tr>
 <tr>
 <td><a href="../has_setting/">has_setting</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide a specific setting of a device</td>
 <td><a href="../Device/">Device</a></td>
 </tr>
 <tr>
 <td><a href="../has_visual_representation/">has_visual_representation</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td></td>
+<td>A property to provide a visualization of a device, such as an image, scetch o...</td>
 <td><a href="../Device/">Device</a></td>
 </tr>
 <tr>
@@ -303,20 +304,20 @@
 <tr>
 <td><a href="../id/">id</a></td>
 <td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>A unique identifier for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the unique identifier for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable name for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the human-readable name for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable description for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A property to provide the human-readable description for a thing</td>
+<td><a href="../MinimalMetadataMixin/">MinimalMetadataMixin</a></td>
 </tr>
 </tbody>
 </table>
@@ -349,6 +350,8 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: DevicePart
+description: A device which function is to be a part of another device that is used
+  within a chemical assay.
 from_schema: https://w3id.org/NFDI4Chem/MIChI
 is_a: Device
 
@@ -357,11 +360,14 @@ is_a: Device
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: DevicePart
+description: A device which function is to be a part of another device that is used
+  within a chemical assay.
 from_schema: https://w3id.org/NFDI4Chem/MIChI
 is_a: Device
 attributes:
   has_part:
     name: has_part
+    description: A property to provide the part of a device
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
     alias: has_part
@@ -369,17 +375,19 @@ attributes:
     domain_of:
     - Device
     range: string
-  has_vendor:
-    name: has_vendor
+  has_manufacturer:
+    name: has_manufacturer
+    description: A property to provide the vendor of a device
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    alias: has_vendor
+    alias: has_manufacturer
     owner: DevicePart
     domain_of:
     - Device
     range: string
   has_serial_number:
     name: has_serial_number
+    description: A property to provide the serial number of a device
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
     alias: has_serial_number
@@ -389,6 +397,7 @@ attributes:
     range: string
   has_model_number:
     name: has_model_number
+    description: A property to provide the model number of a device
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
     alias: has_model_number
@@ -398,6 +407,7 @@ attributes:
     range: string
   has_function:
     name: has_function
+    description: A property to provide the specific function of a device
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
     alias: has_function
@@ -407,6 +417,7 @@ attributes:
     range: string
   has_setting:
     name: has_setting
+    description: A property to provide a specific setting of a device
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
     alias: has_setting
@@ -416,6 +427,8 @@ attributes:
     range: string
   has_visual_representation:
     name: has_visual_representation
+    description: A property to provide a visualization of a device, such as an image,
+      scetch or schematic drawing.
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
     alias: has_visual_representation
@@ -439,38 +452,38 @@ attributes:
     range: string
   id:
     name: id
-    description: A unique identifier for a thing
+    description: A property to provide the unique identifier for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:identifier
+    slot_uri: dct:identifier
     identifier: true
     alias: id
     owner: DevicePart
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: uriorcurie
     required: true
   name:
     name: name
-    description: A human-readable name for a thing
+    description: A property to provide the human-readable name for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:name
+    slot_uri: dct:title
     alias: name
     owner: DevicePart
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: string
   description:
     name: description
-    description: A human-readable description for a thing
+    description: A property to provide the human-readable description for a thing
     from_schema: https://w3id.org/NFDI4Chem/MIChI
     rank: 1000
-    slot_uri: schema:description
+    slot_uri: dct:description
     alias: description
     owner: DevicePart
     domain_of:
-    - NamedThing
+    - MinimalMetadataMixin
     range: string
 
 </code></pre>

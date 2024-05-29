@@ -317,6 +317,7 @@
 
 
 <h1 id="slot-output_of_sampling_process">Slot: output_of_sampling_process</h1>
+<p><em>A property to link a sample to its creation process.</em></p>
 <p>URI: <a href="https://w3id.org/NFDI4Chem/MIChIoutput_of_sampling_process">michi:output_of_sampling_process</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -339,7 +340,7 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../String/">String</a></li>
+<li>Range: <a href="../SamplePreparation/">SamplePreparation</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -350,12 +351,14 @@
 <details>
 
 <pre><code class="language-yaml">name: output_of_sampling_process
+description: A property to link a sample to its creation process.
 from_schema: https://w3id.org/NFDI4Chem/MIChI
 rank: 1000
+domain: Sample
 alias: output_of_sampling_process
 domain_of:
 - Sample
-range: string
+range: SamplePreparation
 
 </code></pre>
 
