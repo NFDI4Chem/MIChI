@@ -1,5 +1,5 @@
 ---
-site_name: "NFDI4Chem_MIChI"
+site_name: "NFDI4Chem MIChI"
 theme:
   name: material
   # palette:
@@ -14,8 +14,8 @@ nav:
   # - Home: home.md
   - Index: index.md
   - About: about.md
-site_url: https://NFDI4Chem.github.io/NFDI4Chem_MIChI
-repo_url: https://github.com/NFDI4Chem/NFDI4Chem_MIChI
+site_url: https://NFDI4Chem.github.io/MIChI
+repo_url: https://github.com/NFDI4Chem/MIChI
 
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.
