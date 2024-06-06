@@ -1,3 +1,3 @@
-# NFDI4Chem_MIChI
+# MICHI
 
-This is the LinkML metadata schema prototype for NFDI4Chem
+NFDI4Chem metadata schema

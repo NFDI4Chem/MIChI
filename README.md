@@ -1,20 +1,20 @@
-# NFDI4Chem_MIChI
+# MICHI
 
-This is the LinkML metadata schema prototype for NFDI4Chem
+NFDI4Chem metadata schema
 
 ## Website
 
-[https://NFDI4Chem.github.io/MIChI](https://NFDI4Chem.github.io/MIChI)
+[https://NFDI4Chem.github.io/MICHI](https://NFDI4Chem.github.io/MICHI)
 
 ## Repository Structure
 
 * [examples/](examples/) - example data
 * [project/](project/) - project files (do not edit these)
 * [src/](src/) - source files (edit these)
-  * [nfdi4chem_michi](src/nfdi4chem_michi)
-    * [schema](src/nfdi4chem_michi/schema) -- LinkML schema
+  * [michi](src/michi)
+    * [schema](src/michi/schema) -- LinkML schema
       (edit this)
-    * [datamodel](src/nfdi4chem_michi/datamodel) -- generated
+    * [datamodel](src/michi/datamodel) -- generated
       Python datamodel
 * [tests/](tests/) - Python tests
 
