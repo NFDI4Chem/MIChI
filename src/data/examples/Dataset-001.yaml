@@ -3,5 +3,3 @@
 entries:
   - id: example:Dataset001
     name: foo bar
-    primary_email: foo.bar@example.com
-    age_in_years: 33

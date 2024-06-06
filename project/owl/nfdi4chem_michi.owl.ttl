@@ -17,10 +17,10 @@ michi:ChemicalEntity a owl:Class,
             owl:minCardinality 0 ;
             owl:onProperty michi:iupac_name ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
+            owl:maxCardinality 1 ;
             owl:onProperty michi:iupac_name ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty michi:iupac_name ],
         michi:MaterialEntity ;
     skos:definition "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity." ;
@@ -40,10 +40,10 @@ michi:DatasetCollection a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DatasetCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom michi:Dataset ;
+            owl:minCardinality 0 ;
             owl:onProperty michi:entries ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom michi:Dataset ;
             owl:onProperty michi:entries ] ;
     skos:definition "A holder for Dataset objects" ;
     skos:inScheme michi: ;
@@ -69,22 +69,22 @@ michi:Sample a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Sample" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom michi:SamplePreparation ;
             owl:onProperty michi:output_of_sampling_process ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty michi:has_characteristic ],
         [ a owl:Restriction ;
             owl:allValuesFrom michi:Characteristic ;
             owl:onProperty michi:has_characteristic ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty michi:output_of_sampling_process ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty michi:has_characteristic ],
         [ a owl:Restriction ;
-            owl:allValuesFrom michi:SamplePreparation ;
+            owl:minCardinality 0 ;
             owl:onProperty michi:output_of_sampling_process ],
         michi:MaterialEntity ;
     skos:definition "The material entity that is being evaluated to assay its attributes/characteristic." ;
@@ -94,23 +94,23 @@ michi:ChemicalAnalysis a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ChemicalAnalysis" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty michi:based_on_assay_output ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:has_status ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty michi:has_status ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:based_on_assay_output ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty michi:based_on_assay_output ],
         [ a owl:Restriction ;
             owl:allValuesFrom michi:ChemicalAnalysisStatus ;
             owl:onProperty michi:has_status ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:has_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:has_status ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:based_on_assay_output ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:based_on_assay_output ],
         michi:PlannedProcess ;
     skos:definition "An interpretation of the data output of a ChemicalAssay" ;
     skos:inScheme michi: ;
@@ -172,37 +172,37 @@ michi:ChemicalSubstance a owl:Class,
     rdfs:label "ChemicalSubstance" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty michi:iupac_name ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty michi:provenance ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:space_group ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:iupac_name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:composed_of_chemical_entity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty michi:iupac_name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:provenance ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:provenance ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty michi:composed_of_chemical_entity ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty michi:iupac_name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty michi:iupac_name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:provenance ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty michi:provenance ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty michi:space_group ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:composed_of_chemical_entity ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty michi:space_group ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty michi:space_group ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:iupac_name ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:provenance ],
         michi:MaterialEntity ;
     skos:definition "A MaterialEntity that is composed of multiple Chemical Entities of either the same or different kind" ;
     skos:exactMatch CHEBI:59999 ;
@@ -215,19 +215,40 @@ michi:Device a owl:Class,
     rdfs:label "Device" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty michi:has_serial_number ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty michi:has_manufacturer ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty michi:has_function ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty michi:has_serial_number ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:has_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:has_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty michi:has_setting ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:has_model_number ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:has_setting ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty michi:has_type ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty michi:has_setting ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:has_serial_number ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:has_serial_number ],
+            owl:onProperty michi:has_part ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty michi:has_visual_representation ],
@@ -235,56 +256,35 @@ michi:Device a owl:Class,
             owl:minCardinality 0 ;
             owl:onProperty michi:has_manufacturer ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:has_setting ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:has_visual_representation ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:has_part ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty michi:has_type ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty michi:has_setting ],
+            owl:onProperty michi:has_function ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty michi:has_model_number ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty michi:has_visual_representation ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty michi:has_part ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:has_model_number ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
             owl:onProperty michi:has_manufacturer ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:has_function ],
+            owl:onProperty michi:has_visual_representation ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty michi:has_function ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:has_type ],
+            owl:onProperty michi:has_part ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty michi:has_function ],
+            owl:onProperty michi:has_part ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty michi:has_serial_number ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty michi:has_model_number ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty michi:has_type ],
+            owl:onProperty michi:has_visual_representation ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:has_part ],
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty michi:has_function ],
         michi:MaterialEntity ;
     skos:definition "A  used within an analysis with a specific function" ;
     skos:inScheme michi: .
@@ -436,23 +436,23 @@ michi:Characteristic a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Characteristic" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty michi:has_quantitative_value ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty michi:has_quantitative_value ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty michi:output_of_analysis ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty michi:output_of_analysis ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:has_quantitative_value ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty michi:output_of_analysis ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:has_quantitative_value ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:output_of_analysis ] ;
+            owl:onProperty michi:has_quantitative_value ] ;
     skos:definition "An attribute/characteristic of an entity (which could be a material entity, information or process)" ;
     skos:exactMatch BFO:0000020 ;
     skos:inScheme michi: .
@@ -469,8 +469,17 @@ michi:MinimalMetadataMixin a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "MinimalMetadataMixin" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:id ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty michi:id ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:name ],
+            owl:onProperty michi:description ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty michi:name ],
@@ -478,23 +487,14 @@ michi:MinimalMetadataMixin a owl:Class,
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty michi:id ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:description ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty michi:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
             owl:onProperty michi:name ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty michi:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty michi:id ] ;
+            owl:onProperty michi:name ] ;
     skos:definition "A mixin with the minimal required slots of a class in this schema." ;
     skos:inScheme michi: .
 
@@ -509,17 +509,20 @@ michi:ChemicalAssay a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "ChemicalAssay" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:produces_dataset ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty michi:produces_dataset ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty michi:has_device ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty michi:has_sample ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty michi:has_device ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:produces_dataset ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:has_device ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty michi:has_type ],
@@ -528,12 +531,6 @@ michi:ChemicalAssay a owl:Class,
             owl:onProperty michi:has_sample ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty michi:has_type ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty michi:has_type ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty michi:has_device ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
@@ -542,8 +539,11 @@ michi:ChemicalAssay a owl:Class,
             owl:allValuesFrom linkml:String ;
             owl:onProperty michi:produces_dataset ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty michi:has_device ],
+            owl:maxCardinality 1 ;
+            owl:onProperty michi:has_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:has_type ],
         michi:PlannedProcess ;
     skos:definition "The planned process to chemically assay a sample in order to determine some characteristic of it." ;
     skos:exactMatch OBI:0000070 ;
@@ -555,10 +555,13 @@ michi:PlannedProcess a owl:Class,
     rdfs:label "PlannedProcess" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty michi:has_output ],
+            owl:onProperty michi:has_input ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty michi:has_input ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty michi:has_output ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty michi:has_output ],
@@ -567,9 +570,6 @@ michi:PlannedProcess a owl:Class,
             owl:onProperty michi:has_input ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty michi:has_input ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty michi:has_output ],
         michi:MinimalMetadataMixin ;
     skos:definition "A process that is executed according to some plan or protocol" ;
@@ -613,11 +613,6 @@ michi: a owl:Ontology ;
     skos:definition "This is the LinkML metadata schema prototype for NFDI4Chem" .
 
 [] a owl:Restriction ;
-    rdfs:subClassOf michi:Device ;
-    owl:onProperty michi:has_type ;
-    owl:someValuesFrom michi:Device .
-
-[] a owl:Restriction ;
     rdfs:subClassOf michi:ChemicalAssay ;
     owl:onProperty michi:has_type ;
     owl:someValuesFrom michi:ChemicalAssay .
@@ -626,4 +621,9 @@ michi: a owl:Ontology ;
     rdfs:subClassOf michi:DevicePart ;
     owl:onProperty michi:has_type ;
     owl:someValuesFrom michi:DevicePart .
+
+[] a owl:Restriction ;
+    rdfs:subClassOf michi:Device ;
+    owl:onProperty michi:has_type ;
+    owl:someValuesFrom michi:Device .
 
