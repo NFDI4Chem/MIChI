@@ -1,5 +1,5 @@
 ---
-site_name: "NFDI4Chem MIChI"
+site_name: "MICHI"
 theme:
   name: material
   # palette:
@@ -10,6 +10,8 @@ theme:
 plugins:
   - search
   - mermaid2
+  - mermaid2:
+      version: 10.9.0
 nav:
   # - Home: home.md
   - Index: index.md

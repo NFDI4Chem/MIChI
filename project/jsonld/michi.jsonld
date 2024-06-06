@@ -1128,13 +1128,13 @@
     }
   ],
   "metamodel_version": "1.7.0",
-  "source_file": "nfdi4chem_michi.yaml",
-  "source_file_date": "2024-06-06T09:03:06",
-  "source_file_size": 11401,
-  "generation_date": "2024-06-06T09:11:28",
+  "source_file": "michi.yaml",
+  "source_file_date": "2024-06-06T08:41:53",
+  "source_file_size": 11114,
+  "generation_date": "2024-06-06T08:54:42",
   "@type": "SchemaDefinition",
   "@context": [
-    "project/jsonld/nfdi4chem_michi.context.jsonld",
+    "project/jsonld/michi.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     {
       "@base": "https://w3id.org/NFDI4Chem/MIChI"

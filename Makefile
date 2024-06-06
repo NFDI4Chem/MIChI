@@ -170,7 +170,7 @@ examples/%.ttl: src/data/examples/%.yaml
 
 test-examples: examples/output
 
-examples/output: src/nfdi4chem_michi/schema/nfdi4chem_michi.yaml
+examples/output: src/michi/schema/michi.yaml
 	mkdir -p $@
 	$(RUN) linkml-run-examples \
 		--output-formats json \
