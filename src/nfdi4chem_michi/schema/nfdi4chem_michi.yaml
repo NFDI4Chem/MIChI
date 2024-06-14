@@ -229,16 +229,14 @@ classes:
 
     DataCollector:
       is_a: Contributor
-      description: A Contributor responsible for finding or gathering/collecting data under the
-      guidelines of the creator(s).
+      description: A Contributor responsible for finding or gathering/collecting data under the guidelines of the creator(s).
       comments:
       - "NR: wasn't discussed in the Halle Metadatathon"
       - "Adapted from DataCite DataCollector definition"
 
     DataCurator:
     is_a: Contributor
-      description: A Contributor tasked with reviewing, enhancing, cleaning, or standardizing metadata and the 
-      associated data submitted for storage, use, and maintenance within a data centre or repository.
+      description: A Contributor tasked with reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use, and maintenance within a data centre or repository.
       comments:
       - "NR: wasn't discussed in the Halle Metadatathon"
       - "Adapted from DataCite DataCurator definition"
