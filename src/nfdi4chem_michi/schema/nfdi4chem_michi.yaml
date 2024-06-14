@@ -188,6 +188,66 @@ classes:
       - improve description
 
 
+# People
+  Person:
+    mixins:
+        - MinimalMetadataMixin    
+    class_uri: NCIT:C25190
+    description: A human being.
+    comments:
+      - "NR: wasn't discussed in the Halle Metadatathon"
+
+  Creator:
+    is_a: Person
+    class_uri: http://purl.org/dc/elements/1.1/creator
+    description: The main person creatively involved in producing the data in a Planned Process.
+    comments:
+      - "NR: wasn't discussed in the Halle Metadatathon"
+      - "Creative involvement aims to exclude device operators producing raw files and files 
+      submitters producing new versions of the files"
+      - "Examples: in NMR, the creator would be someone contributing to the Chemical Analysis (peaks picking, molecular assignment) 
+      or any other preparatoy step requiring novel thinking and not following a fixed protocol"
+    todos:
+      - discuss the case where a Creator is an institute.
+      - discuss the cases where the whole process is following a fixed protocol.
+
+  Contributor:
+    is_a: Person
+    class_uri: http://purl.org/dc/elements/1.1/contributor
+    description: A person involved in the routinic steps needed for producing the data in a Planned Process.
+    comments:
+    - "NR: wasn't discussed in the Halle Metadatathon"
+    todos:
+    - discuss the case where a Contributor is an institute.
+  
+  ContactPerson:
+    is_a: Contributor
+    class_uri: NCIT:C25461
+    description: A Contributor acting as a channel for communication between groups or on behalf of a group.
+    comments:
+    - "NR: wasn't discussed in the Halle Metadatathon"
+
+  DataCollector:
+    is_a: Contributor
+    description: A Contributor responsible for finding or gathering/collecting data under the guidelines of the creator(s).
+    comments:
+    - "NR: wasn't discussed in the Halle Metadatathon"
+    - "Adapted from DataCite DataCollector definition"
+
+  DataCurator:
+    is_a: Contributor
+    description: A Contributor tasked with reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use, and maintenance within a data centre or repository.
+    comments:
+    - "NR: wasn't discussed in the Halle Metadatathon"
+    - "Adapted from DataCite DataCurator definition"
+
+  Submitter:
+    is_a: Contributor
+    description: A Contributor who submits data to ELNs or repositories.
+    comments:
+    - "NR: wasn't discussed in the Halle Metadatathon"
+
+
 # Slots
 slots:
   id:
@@ -270,6 +330,7 @@ slots:
   has_characteristic:
     description: A property to provide a Characteristic of a Material Entity, such as a Sample, or a Process
     range: Characteristic
+
 
 enums:
   ChemicalAnalysisStatus:
